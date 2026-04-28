@@ -1,0 +1,41 @@
+name: Compile Tamil LaTeX to PDF
+
+on:
+  push:
+    branches:
+      - sound_tamil
+    paths:
+      - 'sound_tamil.tex'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install TeX Live with XeLaTeX and Tamil fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-xetex texlive-lang-other fonts-noto fonts-noto-cjk
+
+      - name: Install Tufte LaTeX class
+        run: |
+          sudo apt-get install -y texlive-latex-extra
+
+      - name: Compile sound_tamil.tex with XeLaTeX
+        run: |
+          xelatex -interaction=nonstopmode sound_tamil.tex
+          xelatex -interaction=nonstopmode sound_tamil.tex
+
+      - name: Commit and push PDF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sound_tamil.pdf
+          git commit -m "Add compiled sound_tamil.pdf" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
