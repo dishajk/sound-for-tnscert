@@ -24,7 +24,8 @@
 \usepackage[none]{hyphenat}
 \usepackage{svg}
 \usepackage{siunitx}
-
+\usepackage{array}
+\usepackage{float}
 % Standardize command font styles and environments
 \newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
 \newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
@@ -107,7 +108,7 @@ From this, we can see that the work done depends on two things:
 \item how much force is applied, and
 \item how far the object moves.
 \end{enumerate}
-
+\newthought{Exercise: }Write down all the work that you do in your daily life.
 When a constant force $(F)$ moves an object through some dsitance $(d)$ in the same direction as the force, the work done $(W)$ is defined as:
 \begin{equation}\label{eq:workDef}
 W = F \times d
@@ -116,7 +117,7 @@ The SI unit of work is Joule $(\unit\joule)$, named for James Prescott Joule, an
 
 The SI unit of force is Newton $(\unit\newton)$ and the SI unit of distance is metre $(\unit\metre)$. This makes
 \begin{equation}
-  1~ \unit\joule = 1~ \unit\newton\times 1~\unit\metre = 1~ \unit{\kilo\gram\metre/\square\second}\times 1~\unit\metre= 1~\unit{\kilo\gram\square\metre/\square\second} 
+  1~ \unit\joule = 1~ \unit\newton\times 1~\unit\metre  
 \end{equation}
 \newthought{Example:} If we apply a force of $10~\unit\newton$ to push the book a distance of $2~\unit\metre$, the work done $= 10~\unit\newton \times 2~\unit\metre = 20~\unit\joule$.
 
@@ -149,7 +150,7 @@ Work is done only when the force acts in the same direction as the movement. If 
 \subsection{Can work done be negative?}
 Think about pushing a book across a table. The book moves forward because we apply a force. At the same time, the table exerts a friction force on the book in the opposite direction.
 
-Remember that in formula for work (Equation \ref{eq:workDef}), distance $(d)$ is measured in the direction of the force. In this situation the book moves forward and the frictional force acts backward. So, the motion of the book is in the opposite direction to the friction force. This means the distance, when measured in the direction of the friction force, is negative. Therefore, the work done by friction is negative.
+Remember that in formula for work (Equation \ref{eq:workDef}), distance $(d)$ is measured in the direction of the force. In this situation the book moves forward and the frictional force acts backward. So, the motion of the book is in the opposite direction to the friction force. When a force (like friction) tries to stop an object from moving forward, it is doing negative work because it is 'stealing' energy away from the motion.
 
 If the force and the motion are in opposite directions, the work done is negative. Negative work does not mean “no work.” It means that the force is acting against the motion. It tries to slow the object down or stop it.
 
@@ -167,41 +168,225 @@ If we kick the ball harder, we are applying a larger force. So, we are doing mor
 \subsection{Relationship between work and energy}
 Work and energy are closely related. When we do work on an object, we transfer energy to it. When an object does work on something else, it transfers energy from itself. Energy transferred to the object is positive work, and energy transferred from the object is negative work.
 
-Work done on an object, its energy changes. We can say that work done on an object is the change in its energy. This means, if positive work is done, the energy of the object increases and if negative work is done, the energy of the object decreases. This idea is true even when the force is not constant or changes during motion.
+Work done on an object, its energy changes. We can say that work done on an object is the change in its energy. 
+\begin{equation}
+  \text{Work done on an object} = \text{change in the energy of the object}.  
+\end{equation}
+This means, if positive work is done, the energy of the object increases and if negative work is done, the energy of the object decreases. This idea is true even when the force is not constant or changes during motion.
 
 The SI unit of both work and energy is the $(\unit\joule)$.
 
-Our body gets the energy from the food we consume. The energy stored in food is conventionally measured in the unit of calorie. 1 cal (calorie) = 4.2 J. 
+Our body gets energy to do work from the food we eat. The energy stored in food is often measured in calories (cal). 
+\begin{equation}
+1~cal = 4.2~\unit\joule. 
+\end{equation}
+\newthought{Exercise:} Look at the labels of packaged food items in your house. Write down the energy (in calories) given on each label.
 
-\newthought{Exercise:} Check the labels of packaged food items in your house and list the calories contained in each food item.
+\marginnote{James Prescott Joule studied how mechanical energy and heat (thermal energy) are related and how one can change into the other. His work showed that different forms of energy are connected, helping scientists develop a unified understanding of energy.
 
+He carried out careful experiments on heat and discovered how heat is produced when an electric current flows through a conductor. This relationship is known as Joule's law of heating.
 
+Joule's work played an important role in the development of thermodynamics, the study of heat and energy.
 
-\subsection{}
-
-\marginnote{James Prescott Joule studied how mechanical energy and thermal energy are related, and can be converted from one to the other. This helped develop a unified way to understand energy. Conducted fundamental researches
-on the properties of heat and
-formulated the equation related to
-the heat produced when electricity
-flows. Played an important role
-in formulating the theory of
-thermodynamics by connecting
-mechanical energy and heat energy.
-In 1850 he was selected as a fellow
-of the Royal Society.}
-
+In recognition of his contributions, he was elected a Fellow of the Royal Society in 1850. The SI unit of energy, the joule (J\unit\joule), is named in his honor.
+}
 
 \begin{marginfigure}
-\begin{tikzpicture}
-    \node[draw] at (0,0) {Image of James Prescott Joule.};
-  \end{tikzpicture}  
+\includegraphics{PSM_V05_D008_James_Prescott_Joule} 
   \caption{James Prescott Joule}
 \end{marginfigure}
 
+\subsection{Different forms of Energy}
+Energy can exist in many different forms. We do not always see energy directly, but we can observe its effects.
 
-We require energy to do a lot of everyday tasks. For example, in a classroom, 
-At home heating milk to drink, all of this work requires energy.
+For example, the books placed on a table have more energy than the books on the floor. This energy depends on their position. It is called \textbf{potential energy}. 
 
+Now imagine you push one of the books off the table. As the book falls, it starts moving. This energy due to motion is called \textbf{kinetic energy}. While the book is falling, its potential energy decreases and its kinetic energy increases. Just before it reaches the ground, most of its energy is in the form of kinetic energy. In this way, energy can change from potential energy to kinetic energy. Both potential energy and kinetic energy are forms of mechanical energy. \textbf{Mechanical energy} is the energy an object has due to its position or its motion.
+
+In dam projects, water is stored at a height. This water has potential energy. When the water is released, it flows downward and gains kinetic energy. The moving water turns large turbines, which generate electricity. In this way, the energy of water is converted into electrical energy.
+\begin{marginfigure}
+  \includegraphics{Dam_Aerial_View}
+  \caption{Mettur Dam located across the river Kaveri in Salem.}
+\end{marginfigure}
+In an electric circuit, energy is stored in a battery. This is \textbf{electrical energy}. When the bulb glows, electrical energy is converted into \textbf{light energy} and some energy is also converted into heat.
+
+In your electricity bill, you are charged for the electrical energy you use. This is measured in kilowatt-hour (\unit{\kilo\watt\hour}).
+\begin{equation}
+  1~\unit{\kilo\watt\hour} = 3.6\times10^6 \unit{\joule}
+\end{equation}
+
+\newthought{Question:} Check your home electricity bill. How many units (\unit{\kilo\watt\hour}) of energy have you used? Provide your answer in the unit of Joule.
+
+You may notice that when the electricity consumed at home is written in the unit of Joule, it is a large number. Measuring the electrical energy consumption in Joule is like measuring the distance between two cities in millimetre. Kilowatt-hour (\unit{\kilo\watt\hour}) is therefore a more convenient unit to measure electrical energy.
+
+When we use an electric kettle electrical energy comes from the power supply. This energy passes through a metal coil (heating element) inside the kettle. The coil gets hot. This heat is transferred from the coil to the water. As a result, the temperature of the water increases and it eventually boils. The hot water has \textbf{thermal energy}.
+
+When we beat a drum we use mechanical energy (movement of our hand). This energy is converted into \textbf{sound energy}. Similarly, speakers use electrical energy to produce sound.
+
+The food we eat and fuels like petrol and gas store energy in the form of \textbf{chemical energy}. When we eat food, our body uses this energy to move, work, and stay warm. When fuel burns, chemical energy is released as heat and light.
+\begin{marginfigure}
+\includegraphics{Salem_Palaintains_of_Tamil_Nadu}
+  \caption{Every 100~\unit\g of banana contains apporximately 89 calories of energy.}
+\end{marginfigure}
+\newthought{Question:} A banana contains 100 calories of energy. How much energy is this in joules?
+
+Energy is also stored inside the nuclei of atoms. This is called \textbf{nuclear energy}. It is released in special processes and is used, for example, to generate electricity in nuclear power plants. Nuclear energy powers the Sun. 
+\begin{marginfigure}
+\includegraphics{KKNPP_PTI}
+  \caption{Kudankulam Nuclear Power Plant in Tirunelveli}
+  \label{fig:perpendicularForce}
+\end{marginfigure}
+
+Energy can change from one form to another. It does not disappear. When we observe any activity around us, we can often trace how energy changes form step by step.
+
+For example, when you eat food and then run, the energy stored in the food (chemical energy) is used by your muscles to produce motion. Some of this energy also changes into heat, which keeps your body warm.
+
+In another example, sunlight falls on wet clothes. The energy from sunlight is transferred to the water in the clothes. This energy makes the water evaporate, and the clothes dry.
+
+Similarly, when you switch on a torch, the battery provides electrical energy. This energy is converted into light (and some heat), which helps us see in the dark.
+
+In each of these cases, energy is not lost. It only changes from one form to another.
+
+\newthought{Exercise:} Choose one of the examples above and draw arrows to show how energy changes form.
+Example: Food $\to$ muscle $\to$ motion $\to$ heat
+
+\newthought{Question:} When you ride a cycle, what forms of energy are involved?
+\newthought{Question:} When a fan is running, how does energy change form?
+
+\subsection{Law of Conservation of Energy}
+Energy can change from one form to another, but the total amount of energy remains the same. This idea is called the \emph{Law of Conservation of Energy}.
+
+Consider a roller coaster. When the coaster is at the top of a track, it has high potential energy because of its height. As it moves down, this potential energy changes into kinetic energy, and the coaster speeds up. When it climbs up again, kinetic energy changes back into potential energy, and the speed decreases.
+
+\begin{marginfigure}
+\includegraphics{WonderlaChennai2}
+  \caption{Roller coaster in a theme park in Chennai.}
+\end{marginfigure}
+
+In a similar way, think about riding a bicycle down a slope. At the top, you have more potential energy. As you move down, this changes into kinetic energy and you go faster. When you go up another slope, your speed decreases as kinetic energy changes back into potential energy.
+
+In all these cases, energy is not lost. It only changes from one form to another. The total energy remains constant.
+
+\newthought{Exercise:}
+Complete the table below. For each situation, describe what is happening and identify the form of energy before and after the change.
+
+\begin{table}[h]
+  \centering
+  \fontfamily{ppl}\selectfont
+  \begin{tabular}{p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}} 
+    \toprule
+    What is happening? & Where is energy at the start? & Form of energy (before) & Form of energy (after) & Where does the energy go to?\\
+    \midrule
+    We push a book and it moves &body & chemical energy & kinetic energy & book \\
+    \bottomrule    
+    \ldots &\ldots & \ldots & \ldots & \ldots \\    \bottomrule
+    \ldots &\ldots & \ldots & \ldots & \ldots \\    \bottomrule
+    \ldots &\ldots & \ldots & \ldots & \ldots \\    \bottomrule
+    \ldots &\ldots & \ldots & \ldots & \ldots \\    \bottomrule
+  \end{tabular}
+  \label{tab:energy-table}
+  %\zsavepos{pos:normaltab}
+\end{table}
+\subsection{Energy from the Sun}
+The Sun is an important source of energy for life on Earth. It gives us light energy and heat energy.
+
+We use sunlight in many ways. We use it for drying washed clothes. Plants use sunlight for photosynthesis to grow. Plants later becomes our food.  Sunlight is a renewable source of energy. This means it is naturally available and will not run out in a short time.
+
+\begin{figure}[h]
+\begin{tikzpicture}
+    \node[draw,align=left,text width=\textwidth] at (0,0) {Diagram of working of a solar cooker};
+  \end{tikzpicture}  
+  \caption{A solar cooker uses sunlight and can be used on a sunny day to cook food. A solar cooker does not use fuel like gas or coal. It does not produce smoke. It helps reduce energy waste.}
+\end{figure}
+
+Sunlight, wind and flowing water are examples of renewable energy sources. These sources can be used again and again. Hydroelectric power and power generated from wind turbines are a renewable source of energy because it depends on the natural water cycle and flowing wind. 
+\begin{figure}[h]
+  \includegraphics{Aralvaimozhy_station}
+  \caption{The largest wind farm of India in Muppandal, Kanyakumari.}
+\end{figure}
+\begin{marginfigure}
+\includegraphics{Solar_Panels_in_Farm,_India}
+\caption{A farm in which uses Solar Power to run its water pumps and lights.}
+\end{marginfigure}
+Coal, petrol, and natural gas are non-renewable energy sources. Non-renewable energy sources take millions of years to form and can get used up.
+
+Energy from non-renewable sources is limited. If we waste it, it may not be available in the future. Using renewable sources and reducing unnecessary use helps save energy.
+
+\newthought{Question:} Give one real-life situation where understanding energy can help reduce waste.
+Example: Switching off lights and fans when not in use to save electrical energy.
+
+\newpage
+\section{Image Source}
+\begin{table}[h]
+  \centering
+  \fontfamily{ppl}\selectfont
+  \begin{tabular}{p{0.3\textwidth}p{0.5\textwidth}p{0.2\textwidth}} 
+    \toprule
+    Figure & Source & License\\
+    \midrule
+    Roller coaster in a theme park in Chennai. &\url{https://th-i.thgim.com/public/incoming/8sgztp/article70344934.ece/alternates/LANDSCAPE_1200/Wonderla%20Chennai%20%202.jpg} & Copyright Wonderla Chennai \\
+    \bottomrule      
+ The largest wind farm of India in Muppandal, Kanyakumari. & \url{https://commons.wikimedia.org/wiki/File:Aralvaimozhy_station.jpg#/media/File:Aralvaimozhy_station.jpg} & CC-by-sa
+PlaneMad/Wikimedia\\
+    \bottomrule    
+A farm in which uses Solar Power to run its water pumps and lights. & \url{https://commons.wikimedia.org/wiki/File:Solar_Panels_in_Farm,_India.jpg#/media/File:Solar_Panels_in_Farm,_India.jpg} & CC BY 2.0\\
+    \bottomrule  
+    Mettur Dam located across the river Kaveri in Salem & \url{https://commons.wikimedia.org/wiki/File:Dam_Aerial_View.JPG#/media/File:Dam_Aerial_View.JPG} & CC BY-SA 4.0\\
+    \bottomrule  
+    Every 100~\unit\g of banana contains apporximately 89 calories of energy. & \url{https://commons.wikimedia.org/wiki/File:Salem_Palaintains_of_Tamil_Nadu.jpg#/media/File:Salem_Palaintains_of_Tamil_Nadu.jpg} & CC BY-SA 4.0\\
+    \bottomrule  
+    James Prescott Joule & \url{https://commons.wikimedia.org/wiki/File:PSM_V05_D008_James_Prescott_Joule.jpg#/media/File:PSM_V05_D008_James_Prescott_Joule.jpg} & Public Domain\\
+    \bottomrule  
+    Figure & Source & License\\
+    \bottomrule  
+        Figure & Source & License\\
+    \bottomrule  
+        Figure & Source & License\\
+    \bottomrule  
+        Figure & Source & License\\
+    \bottomrule  
+  \end{tabular}
+\end{table}
+\nocite{halliday2013fundamentals}
+\nocite{walker2006flying}
+
+\bibliographystyle{plainnat}
+\bibliography{workandenergy}
+\end{document}
+
+Where does the energy go when a moving object stops? For example, when you throw a ball up, it moves, has kinetic energy by virt, 
+
+> A ball rolls, slows down, and stops.
+> Has energy disappeared?
+
+Question: Tracking energy
+
+ Situations
+
+1. Falling object
+2. Cycling and braking
+3. Electric fan
+4. Boiling water
+
+ Task (worksheet)
+
+Fill:
+(also provide an example)
+| Step | What happens | Energy form before | Energy form after |
+| ---- | ------------ | ------------------ | ----------------- |
+ 
+Energy changes form, it does not just vanish. 
+
+
+Question: Design a system that uses energy usefully”
+
+Examples:
+
+Solar cooker
+
+Identify source of energy, Show transformations, Explain how waste is reduced
+
+Question: One situation where understanding energy can help reduce waste.
 
 Strait of Hormutz
 Energy crisis
@@ -279,492 +464,3 @@ Playing carroms
 Working of a yoyo -  when talking about types of mechanical energy
 
 Playing using spinning tops
-
-
-Energy as “ability to do work”**
-
-**Goal**
-
-Students see energy as a unifying idea across situations and begin identifying forms.
-
----
-
-**Warm-up (10 min): Recall + puzzle**
-
-Ask:
-
-> Yesterday, when work was done, what made it possible?
-
-Let them say:
-
-* “we used energy” (even if vague)
-
----
-
-**Activity 1 (25 min): “What caused the change?”**
-
-Stations (rotate groups):
-
-1. Stretched rubber band → released
-2. Ball at height → dropped
-3. Rolling ball → hits another
-4. Battery + bulb circuit
-5. Rubbing hands → heat
-
- Worksheet table
-
-| Situation | What changed? | What caused it? | Where was it before? |
-| --------- | ------------- | --------------- | -------------------- |
-
-**Goal:** They notice “stored” vs “moving” vs “transfer”
-
----
-
-**Discussion (15 min): Naming carefully**
-
-Introduce:
-
-> Energy = capacity to do work
-
-Then label (only after observation):
-
-* Motion → kinetic energy
-* Height/position → potential energy
-* Stored in stretch → elastic energy
-
-Avoid listing beyond these 3.
-
----
-
-**Activity 2 (20 min): Comparison tasks**
-
-Ask:
-
-* Which has more energy?
-
-  * Fast vs slow ball
-  * Heavy vs light ball
-  * High vs low object
-
-Students justify qualitatively.
-
-Then introduce:
-
-${"math_block_widget_always_prefetch_v2":{"content":"KE = \frac{1}{2}mv^2"}}$
-
-Use it only for:
-
-* “What changes more: doubling speed or doubling mass?”
-
-Let them test with small numbers.
-
----
-
-**Activity 3 (15 min): Energy chains**
-
-Give real-life cases:
-
-* Eating → running
-* Sun → drying clothes
-* Battery → torch
-
-**Task: Draw arrows**
-Example:
-
-> Food → muscle → motion → heat
-
----
-
-**Exit question**
-
-> Where does the energy go when a moving object stops?
-
----
-
-**Day 3: Energy change, representation, and responsibility**
-
-**Goal**
-
-Students represent energy transformations and connect to everyday decisions.
-
----
-
-**Warm-up (10 min): Challenge**
-
-> A ball rolls, slows down, and stops.
-> Has energy disappeared?
-
-Let them argue.
-
----
-
-**Activity 1 (25 min): Tracking energy**
-
- Situations
-
-1. Falling object
-2. Cycling and braking
-3. Electric fan
-4. Boiling water
-
- Task (worksheet)
-
-Fill:
-
-| Step | What happens | Energy form before | Energy form after |
-| ---- | ------------ | ------------------ | ----------------- |
-
----
-
-**Discussion (15 min): Big idea**
-
-Guide toward:
-
-> Energy changes form, it does not just vanish.
-
-(No need to formalise conservation law explicitly.)
-
----
-
-**Activity 2 (20 min): Design challenge**
-
-> “Design a system that uses energy usefully”
-
-Examples:
-
-* Solar cooker
-* Efficient classroom lighting
-* Insulated water bottle
-
-**Constraints:**
-
-* Identify source of energy
-* Show transformations
-* Explain how waste is reduced
-
----
-
-**Activity 3 (15 min): Language upgrade**
-
-Give sentences:
-
-* “Energy is lost”
-* “Work is done by pushing hard”
-* “Fan uses electricity”
-
-**Task: Rewrite using scientific vocabulary**
-
-Example:
-
-> “Electrical energy is converted into kinetic energy of the fan.”
-
----
-
-**Final reflection**
-
-Short writing:
-
-> One situation where understanding energy can help reduce waste.
-
----
-
-**Worksheet Pack (summary)**
-
-Sheet 1: What is work?
-
-* Yes/No classification
-* Explain contradictions
-* Identify role of displacement
-
-Sheet 2: Observing energy
-
-* Table of situations
-* “What caused the change?”
-
-Sheet 3: Comparing energy
-
-* Qualitative comparisons
-* Simple KE calculations
-
-Sheet 4: Energy chains
-
-* Arrow diagrams
-
-Sheet 5: Energy tracking
-
-* Before/after tables
-
----
-
-**Pedagogical notes (important for your style)**
-
-* Let disagreement sit longer than comfortable
-* Do not correct immediately; redirect with examples
-* Use measurement only to support thinking, not dominate it
-* Keep formal vocabulary minimal but precise
-* Revisit earlier examples after each new idea (spiral, not linear)
-
----
-
-If you want, I can convert this into **printable worksheets (LaTeX-ready, clean formatting)** or add **assessment rubrics aligned with competencies**.
-
-\newthought{Exercise: }Write down all the work that you do in your daily life.
-
-
-
-Where do these sounds come from? How are these sounds produced? In this chapter, we will explore how sound is produced and how it propagates\footnote{Here the word 'propagate' is used instead of simpler and familiar word like 'travel' to avoid misconceptions that students create, e.g. The word travel suggests that 'sound' is a moving object. Words are chosen to ensure that students develop a scientifically accurate mental model of the concept.} from one place to another. We will also learn that sound can be understood as a wave.
-\section{How is Sound Produced?}\label{sec:production}
-\subsection{Activity: Vibrating Scale}\label{sec:production-activity}
-
-Materials required:
-\begin{enumerate}
-    \item Scale
-    \item Desk or table
-\end{enumerate}
-Place the scale on the desk so that about one-third of it is over the edge. Hold the part on the desk with one hand. Push the free end of the scale downward. Release it quickly.
-\marginnote{\footnotesize Image credit: Ingrid Sulston, licensed under CC BY-NC-SA 4.0}
-
-
-\newthought{Observe:} do you see ripples forming on the surface of the water?
-
-\newthought{Discussion:} In each case, some part of the object moves back and forth rapidly. This type of motion is called \textbf{vibration}. 
-\marginnote{Did you know? Many quartz clocks and watches keep time using a small quartz crystal. This crystal is shaped like a tiny tuning fork.}
-\newthought{Sound is produced when objects vibrate.}
-The vibrating part of an object can make nearby air move. These vibrations spread through the air and reach our ears as sound.
-
-\newthought{Exercise:} create a table as shown in Table~\ref{tab:obs-table} listing the object that produces sound and the part of the object that vibrates.
-
-\begin{table}[h]
-  \centering
-  \fontfamily{ppl}\selectfont
-  \begin{tabular}{lll}
-    \toprule
-    Sl. No. & Object that produces sound & Part of the object that vibrates \\
-    \midrule
-    1 &Vibrating scale & Tip of the scale \\
-    2 & Musical geometry box& \vdots \\
-    3 &\vdots & \vdots \\
-    \vdots &\vdots & \vdots \\
-    \bottomrule
-  \end{tabular}
-  \caption{Observation table}
-  \label{tab:obs-table}
-  %\zsavepos{pos:normaltab}
-\end{table}
-
-\newpage
-Speak into one cup while your benchmate listens through the other cup. See Figure~\ref{stringtelephone}
-\newthought{Observe:} Can your benchmate hear the voice? What happens to the sound when you let the string loose?
-
-\newthought{Discussion:} When the string is tight, vibrations travel through the string. When the string is loose, the vibrations do not travel well. This shows that sound needs a material medium to propagate.
-
-called a \textbf{medium}. 
-
-
-\begin{table}[h]
-  \centering
-  \fontfamily{ppl}\selectfont
-  \begin{tabular}{lll}
-    \toprule
-    Observation No. & No. of times the scale moves & $n/5$\\
-    &back and forth in 5 seconds ($n$)& \\
-    \midrule
-    1 &\ldots & \ldots \\
-    2 & \ldots& \ldots \\
-    3 &\ldots & \ldots \\
-    \bottomrule
-  \end{tabular}
-  \caption{Observation table for finding the frequency of the vibrating scale}
-  \label{tab:obs-table}
-  %\zsavepos{pos:normaltab}
-\end{table}
-
-When the scale vibrates, it also makes the surrounding air vibrate. As the scale moves back and forth, it pushes and pulls the nearby air. This creates compressions and rarefactions in the air.
-
-\newthought{Discussion:} the number of vibrations that occur in one second is called the \textbf{frequency} of the vibration. Frequency is measured in hertz (\hertz) and usually represented by the Greek letter $\nu$ (nu). Frequency tells us how often an event occurs in a unit of time. 
-
-\newthought{Example:} if you beat a drum 10 times in one second, the frequency of your beating is 10 \hertz.
-
-\subsection{Pitch}
-
-Sounds with higher frequency have a higher pitch and sounds with lower frequency have a lower pitch. A mosquito makes a high-pitched sound. A drum makes a low-pitched sound. Which one is vibrating faster?
-
-
-\newthought{Question:} A bell is struck and produces sound. After a few seconds, the sound stops. What must have happened to the bell?
-
-\newthought{Question:} Kavin and Priya are standing at different distances from the lightning. Both hear the thunder. Will the pitch of the thunder be different for them? Will the loudness of the thunder be different?
-\subsection{Amplitude}
-You may also have noticed something else during the activity. When the scale was plucked gently, the sound was soft. When the scale was plucked harder, the sound was louder. 
-
-If you watch the scale carefully, you will see that when it is plucked harder, it moves farther away from its resting position during each vibration.
-
-The size of this vibration is called the \textbf{amplitude}. Amplitude tells us how large the vibration is. A vibration with greater amplitude produces a louder sound, while a vibration with smaller amplitude produces a softer sound. Amplitude affects loudness, not pitch.
-
-\newthought{Question:} Two sounds have the same pitch, but one is louder. What must be different?
-
-\marginnote{Pitch depends on frequency, which is determined by the source. Distance from the source does not change the frequency. As sound spreads out, its amplitude decreases, this is why it becomes quieter as you move far from the source.}
-
-\subsection{Hearing loss and hearing aids}
-Very loud sounds can damage the inner ear and lead to hearing loss. Some people are born with conditions that affect their ability to hear. 
-
-Hearing aids are devices that help such people hear better. They work by amplifying sound, that is, by increasing the amplitude of the sound waves.
-
-\subsection{Activity: long spring}
-
-Take a long spring. Ask your classmate to hold one end while you hold the other end. Stretch the long spring gently between you. Now give the long spring a quick push toward your classmate.
-
-\newthought{Observe:} You will see regions where the coils are close together and regions where they are farther apart. A region where the coils are close together is called a compression. A region where the coils are farther apart is called a rarefaction. This is similar to what happens in sound waves in air.
-
-\section{Wavelength}
-The distance between two neighbouring compressions (or two neighbouring rarefactions) is called the \textbf{wavelength}. Wavelength is measured in the units of distance. The SI unit of distance is the metre (m). Wavelength is usually represented by the Greek letter $\lambda$ (lambda). See Figure~\ref{fig:wavelength}.
-\begin{figure}[h]
-\begin{tikzpicture}
-  \pic at (0,0) {speaker};
-        \pgfmathsetmacro{\w}{3}
-        \foreach \i in {1,2,3}{
-          \shadedraw[shading=axis,shading angle=90,draw=none] ({1+(\i-1)*\w},-2) rectangle ({1+(\i-1)*\w+\w/2},{-2+\w});
-          \shadedraw[shading=axis,shading angle=-90,draw=none] ({1+(\i-1)*\w+\w/2},-2) rectangle ({1+\i*\w},{-2+\w});
-          \node[below] at ({1+(\i-1)*\w},-2) {C};
-          \node[below] at ({1+(\i-1)*\w+\w/2},-2) {R};
-          }
-          \node[below] at ({1+3*\w},-2) {C};
-          \draw (5,-2.5) --++(-90:.5);
-          \draw (8,-2.5) --++(-90:.5);
-          \draw (4,-2.75) --++(0:3) node[below, align=center,midway] {$\lambda$};
-
-    \end{tikzpicture}
-%  \checkparity This is an \pageparity\ page.%
-  \caption{The distance between two neighbouring compressions (or two neighbouring rarefactions) is the wavelength ($\lambda$).}\label{fig:wavelength}
-%   \zsavepos{pos:ppfig1}
-  \setfloatalignment{b}
-\end{figure}
-Repeat the activity, but now create compressions more quickly.
-
-\newthought{Observe:} When vibrations happen more often each second (higher frequency), the compressions are packed closer together and the wavelength becomes shorter.
-
-\section{Speed of Sound}
-Do we hear sound instantly after it is produced? Think about what happens during lightning and thunder. When lightning strikes, we see a flash of light and hear thunder.
-
-\newthought{Observe:} Do you see the lightning and hear the thunder at the same time? Or do they happen one after the other? Which do you notice first?
-
-Usually, we see the lightning first and hear the thunder later.
-
-\marginnote{If the thunder sounds quieter when you are farther away, does the thunder have less energy when it reaches you?}
-These observations show that sound takes time to propagate from the source to our ears. Light travels much faster than sound, so we see the flash before we hear the sound. 
-
-In air, sound propagates at a speed of about 340 metres per second (at room temperature). The speed of a sound wave depends on both its frequency and its wavelength.
-
-\begin{equation}
-\text{Speed} = \text{Frequency}\times\text{Wavelength}
-\end{equation}
-Sound does not propagate at the same speed in all materials. The speed of sound depends on the medium through which it propagates. Sound propagates fastest in solids, slower in liquids, and slowest in gases. For example, sound propagates faster in metal or wood than in air. This is because the particles in solids are closer together, allowing vibrations to pass more quickly from one particle to the next. 
-
-\newthought{Question:} How does temperature affect the speed of sound?
-
-\marginnote{As the temperature increases, the speed of sound increases. This happens because when the temperature is higher, the particles of the medium move faster. As a result, they pass the vibrations to neighbouring particles more quickly, allowing sound to propagate faster. For example, sound travels faster in warm air than in cold air.}
-
-\subsection{Musical instruments}
-Musical instruments produce sound by making strings, membranes, or air columns vibrate. By changing certain parts of the instrument, musicians can change the frequency of vibration, and therefore the pitch of the sound.
-
-Different instruments change the frequency in different ways.
-
-Veena (string instrument): The strings vibrate to produce sound. Pressing the string at different positions changes the length of the vibrating string, which changes the frequency and the pitch.
-
-
-Parai (drum): The stretched membrane (skin) vibrates when it is struck. Changing the tightness of the membrane changes the frequency of vibration and the sound produced.
-
-Nadaswaram (wind instrument): Sound is produced by vibrations of the air column inside the instrument. Opening and closing the finger holes changes the effective length of the air column, which changes the frequency.
-Although these instruments look very different, they all produce sound through vibrations, and the frequency of vibration determines the pitch of the sound.
-
-\subsection{Ultrasound}
-Humans can hear sounds with frequencies roughly between 20 \hertz and 20,000 \hertz. Sounds with frequencies higher than 20,000 \hertz are called ultrasound. Humans cannot hear ultrasound.
-
-Ultrasound has many useful applications:
-
-\begin{enumerate}
-\item Medical imaging: Doctors use ultrasound to look inside the body, for example to observe a developing fetus during pregnancy.
-
-\item Detecting cracks in materials: Ultrasound can be used to find cracks or defects in metals and other materials.
-\item Animal communication and navigation: Some animals, such as bats and dolphins, produce and detect ultrasound. They use it to communicate and to find objects around them.
-
-\end{enumerate}
-
-\subsection{Echo}
-Sound travels at a finite speed. When a sound wave meets a surface such as a wall, cliff, or building, it can reflect and travel back toward the source.
-
-An echo is heard when the reflected sound reaches our ears after a short delay.
-
-For an echo to be heard clearly, the reflecting surface must be far enough away. If the surface is too close, the reflected sound mixes with the original sound and we do not hear a separate echo.
-
-For example, when you shout in a large empty hall, valley, or near a cliff, you may hear your own voice repeated after a short time. This repeated sound is the echo. Echoes show that sound waves can reflect from surfaces and travel back to us.
-
-
-\subsection{Echolocation}
-Animals such as bats and dolphins produce sounds and listen to the echoes to locate objects around them.
-\subsection{Sonar}
-Ships and submarines use sound waves and their echoes to detect objects underwater and measure distances.
-
-\subsection{Noise Pollution}
-Unwanted or unpleasant sound is called noise. When there is too much noise in our surroundings, it leads to noise pollution.
-
-Common sources of noise pollution include traffic noise from vehicles and horns, loudspeakers used at high volume,industrial noise from machines and factories, construction activities.
-
-Continuous exposure to loud noise can cause stress, lack of sleep, and hearing problems. How can we reduce noise pollution?
-
-We can reduce noise pollution by avoiding unnecessary honking on the roads, keeping the volume of loudspeakers low, using silencers and maintaining vehicles properly, planting trees, which can help absorb sound, following rules and regulations about noise levels.
-
-Reducing noise pollution helps create a healthier and more peaceful environment.
-\marginnote{If you pick up a seashell on a beach and hold it close to your ear, you may hear a sound that resembles waves breaking on the shore. Where does this sound come from?}
-\subsection{}
-Sound is an example of a mechanical wave. It is also a longitudinal wave, because the particles of the medium vibrate along the direction in which the wave propagates. There is another type of wave called a transverse wave. In a transverse wave, the particles of the medium move perpendicular to the direction in which the wave propagates. In other words, the particles move up and down, while the wave moves forward.
-
-An example of a transverse wave can be seen when a pebble is dropped into a pond. The ripples that spread across the surface of the water are transverse waves.
-
-Light is also a transverse wave. However, light does not need a material medium to propagate, so it is not a mechanical wave.
-
-The world around us is full of waves - sound waves, water waves, and light waves.
-\newpage
-\nocite{halliday2013fundamentals}
-\nocite{walker2006flying}
-\nocite{PhysRevSTPER.6.020114}
-
-\bibliographystyle{plainnat}
-\bibliography{workandenergy}
-
-\end{document}
-
-% \subsection{Paper whistle}
-% \begin{figure}[h]
-% \begin{tikzpicture}
-%         \draw[fill=yellow!20] (0,0) node[below] {A} rectangle (3,4);
-%         \node[below] at (3,0) {B}; 
-%         \node[right] at (0,-1) {Step 1: Take a piece of paper.}; 
-%     \end{tikzpicture}
-%     \begin{tikzpicture}
-%         \draw[fill=yellow!20] (0,0) node[below] {A} rectangle (3,4);
-%         \node[below] at (3,0) {B}; 
-%         \draw[dashed,thick] (2.5,0)--++(0,3.5) --++(0.5,0);
-%         \node[right] at (0,-1) {Step 2: Cut along the dashed lines}; 
-%     \end{tikzpicture}
-%     \begin{tikzpicture}
-%         \draw[fill=yellow!20] (0,0) node[below] {A} --++(2.5,0) --++ (0,3.5) --++(0.5,0) -- (3,4) --++ (-3,0) --cycle;
-%         \node[below] at (3,0) {B}; 
-%         \draw[dashed,thick] (2.5,0)--++(0,3.5) --++(0.5,0);
-%         \node[right] at (0,-1) {Step 3: Place a pencil along AB and roll the paper into a cylinder}; 
-%         \pic at (0,0) {pencil};
-%         \draw[->] (3,-.2) arc [start angle=270, end angle=90, radius=4mm];
-%     \end{tikzpicture}
-%     \begin{tikzpicture}
-%         % \draw[fill=yellow!20] (0,0) node[below] {A} --++(2.5,0) --++ (0,3.5) --++(0.5,0) -- (3,4) --++ (-3,0) --cycle;
-%         \node[right] at (0,-1) {Step 4: Remove the pencil. Fold the flap to close one side of the cylinder}; 
-%         \draw[fill=yellow!20] (0,0) to [out=180,in=180] (0,0.5) -- (3,0.5) -- (3,0) -- cycle;
-%         \draw (2.5,0.25) circle [x radius=0.2,y radius=0.25];
-%     \end{tikzpicture}
-% %  \checkparity This is an \pageparity\ page.%
-%   \caption{Instructions for creating your own sound maker.}
-%   \label{fig:ppfig1}
-% %   \zsavepos{pos:ppfig1}
-%   \setfloatalignment{b}
-% \end{figure}
-
-% Create your own paper whistle as shown in figure~\ref{fig:ppfig1}. Suck air in through the open end.
