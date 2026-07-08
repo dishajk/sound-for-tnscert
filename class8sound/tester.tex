@@ -1,21 +1,31 @@
 \documentclass[a4paper]{tufte-handout}
+
+% --- BUG FIX FOR TUFTE-LATEX ---
+% Tufte hasn't been updated to support modern LaTeX case-changing engines.
+% This dummy command stops Tufte from crashing when it builds the page headers.
+\renewcommand{\MakeTextLowercase}[1]{#1}
+% -------------------------------
+
 \title[Sound]{Sound\thanks{Draft version as of \today}}
 \author[dishajk]{Disha Kuzhively}
 
 \usepackage{tikz}
 
 % Standardize command font styles and environments
-\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
-\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
-\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
-\newcommand{\docenv}[1]{\textsf{#1}}% environment name
-\newcommand{\docpkg}[1]{\texttt{#1}}% package name
-\newcommand{\doccls}[1]{\texttt{#1}}% document class name
-\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
-\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}
+\newcommand{\docenv}[1]{\textsf{#1}}
+\newcommand{\docpkg}[1]{\texttt{#1}}
+\newcommand{\doccls}[1]{\texttt{#1}}
+\newcommand{\docclsopt}[1]{\texttt{#1}}
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}
+\usepackage{textcase}
+\let\MakeTextLowercase\relax
+\let\MakeTextUppercase\relax
 \begin{document}
 
-\maketitle% this prints the handout title, author, and date
+\maketitle
 
 \begin{abstract}
 \noindent
@@ -28,6 +38,7 @@ Every day we experience many natural and human-made sounds around us. At night, 
 
 Where do these sounds come from? In this chapter, we will explore how sound is produced and how it propagates\footnote{Here the word 'propagate' is used instead of simpler and familiar word like 'travel' to avoid misconceptions that students create, e.g. The word travel suggests that 'sound' is a moving object. Words are chosen to ensure that students develop a scientifically accurate mental model of the concept.} from one place to another. We will also learn that sound can be understood as a wave.
 \newthought{Exercise: }Close your eyes for one minute and listen carefully. Write down all the sounds you hear.
+
 \subsection{Activity: Vibrating Scale}
 Materials required:
 \begin{enumerate}
@@ -46,6 +57,7 @@ Materials required:
 \end{marginfigure}
 \marginnote{\footnotesize Image credit: Ingrid Sulston, licensed under CC BY-NC-SA 4.0}
 \newthought{Observe:} What happens to the free end of the scale? Do you hear a sound? Do you see the scale move up and down rapidly? What type of motion is this?
+
 \subsection{Activity: Rubber Band Instrument}
 Materials required:
 \begin{enumerate}
@@ -56,25 +68,11 @@ Materials required:
 \begin{marginfigure}
   \centering
 \begin{tikzpicture}
-    \node[draw,text width=\textwidth] at (0,0) {Image of a pencil box with a rubber band around it.};
+    \node[draw] at (0,0) {Image of a pencil box with a rubber band around it.};
   \end{tikzpicture}
   \caption{Pencil box with rubber band around it.}
   \label{rubberbox}
 \end{marginfigure}
 \newthought{Procedure:} Close the geometry box. Stretch a rubber band across the length of the box. Place a pencil each under the rubber band near the two ends. This will lift the rubber band slightly above the surface of the box. See Figure~\ref{rubberbox}. Pluck the rubber band with your finger.
-\newthought{Observe:} Do you hear a sound? Which part of the setup is moving?
-\subsection{Optional Activity: Tuning Fork}
-
-\begin{marginfigure}
-  \includegraphics[width=\textwidth]{tuning-fork}
-  \caption[Tuning fork]{Tuning fork}
-\end{marginfigure}
-\textit{If a tuning fork is available, try this activity.}
-Materials required:
-\begin{enumerate}
-    \item Tuning fork
-    \item Rubber hammer
-    \item Bowl of water
-\end{enumerate}
 
 \end{document}
