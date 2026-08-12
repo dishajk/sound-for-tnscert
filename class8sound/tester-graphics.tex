@@ -1,0 +1,37 @@
+% To convert to svg
+% lualatex --output-format=dvi filename.tex
+% dvisvgm filename.dvi
+%\documentclass[a3paper]{article}
+%\usepackage[left=0mm,top=1cm,right=0mm,bottom=0mm]{geometry}
+\documentclass[border=0]{standalone}
+% \documentclass[dvisvgm]{minimal}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{xkcdcolors}
+% \definecolor{pGreen}{HTML}{006633}
+% \definecolor{pRed}{HTML}{cc0033}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\tikzset{
+        speaker/.pic={
+        \draw (-1,-1) --++ (0.5,0) --++ (1.5,-1)--++(0,3)--++(-1.5,-1)--++(-0.5,0);
+        \node[text width=2cm] at (0,-.5) {Source of sound}; 
+    }
+}
+\begin{document}
+  \begin{tikzpicture}
+    \node[yshift=-4em] at (0,0) {\includegraphics[width=3cm]{cos6x}};
+    \node[yshift=-3em] at (0,1) {$+$};
+    \node[yshift=-2em] at (0,2) {\includegraphics[width=3cm]{3by2Cos3xby2}};
+    \node[yshift=-1em] at (0,3) {$+$};
+    \node at (0,4) {\includegraphics[width=3cm]{2sin2xby3}};
+    \node[yshift=1em] at (0,5) {$+$};
+    \node[yshift=2em] at (0,6) {\includegraphics[width=3cm]{sin2x}};
+    \node[yshift=3em] at (0,7) {$+$};
+    \node[yshift=4em] at (0,8) {\includegraphics[width=3cm]{sinx}};
+    \node at (-2,4) {$=$};
+    \node at (-4,4) {\includegraphics[width=3cm]{total}};
+    % \draw (0,0) grid (4,8);
+    % \node at (70:3) {\includegraphics[height=0.8cm]{ear}};
+  \end{tikzpicture}
+\end{document}

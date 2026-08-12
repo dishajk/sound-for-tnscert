@@ -1,9 +1,21 @@
-\documentclass[a4paper]{tufte-handout}
-\title[Sound]{Sound\thanks{Draft version as of \today}}
-\author[dishajk]{Disha Kuzhively}
+\documentclass{xtufte-handout}
+\usepackage{fontspec}
 
+\setmainfont{Noto Sans}
+\newfontfamily{\tam}[Script=Tamil]{Noto Sans Tamil}
+\title{Sound\thanks{Draft version as of \today}}
+\author{Disha Kuzhively\thanks{disha.jk@icts.res.in}}
+\date{\today}
+% \geometry{showframe}   
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments  
+\usepackage{booktabs}
 \usepackage{tikz}
-
+\usepackage[none]{hyphenat}
+\usepackage{xkcdcolors}
 % Standardize command font styles and environments
 \newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
 \newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
@@ -12,69 +24,564 @@
 \newcommand{\docpkg}[1]{\texttt{#1}}% package name
 \newcommand{\doccls}[1]{\texttt{#1}}% document class name
 \newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
-\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
-\begin{document}
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% comm
+\newcommand{\hertz}{Hz}
 
-\maketitle% this prints the handout title, author, and date
+\tikzset{
+    pencil/.pic={
+        \pgfmathsetmacro{\l}{3}
+        \pgfmathsetmacro{\w}{\l/10}
+        % Pencil body
+        \fill[orange!80!yellow] (0,0) rectangle (\l,\w);
+        % Wooden sharpened part
+        \fill[brown!30] (\l,0) -- ({7*\l/6},\w/2) -- (\l,\w) -- cycle;
+        
+        \fill[black] ({7*\l/6},{\w/2}) -- ($({7*\l/6},{\w/2})!0.3!(\l,\w)$) --($({7*\l/6},{\w/2})!0.3!(\l,0)$) --cycle;
+        % Edge lines
+
+        \draw (0,0) rectangle (\l,\w);
+
+        \draw (\l,0) -- ({7*\l/6},\w/2) -- (\l,\w);
+        \fill[pink!60,draw=black] (-\w,0) rectangle (0,\w);
+        \fill[gray!50, draw=black] (-\w/3,0) rectangle (0,\w);
+    },
+    speaker/.pic={
+        \draw (-1,-1) --++ (0.5,0) --++ (1.5,-1)--++(0,3)--++(-1.5,-1)--++(-0.5,0);
+        \node[text width=2cm] at (0,-.5) {Source of sound}; 
+    }
+}
+\begin{document}
+\maketitle
 
 \begin{abstract}
 \noindent
-This article was prepared by the author to serve as a draft for TNSCERT class 8 chapter on the concept of Sound for TNSCERT during the the Tamil Nadu Curriculum Framing(TNCF) workshop that was held in Asha Nivas, Chennai  from 13-11-2025 to 15-11-2025, and 09-03-2026 to 10-03-2026.
-
-The right side margin of each page contains notes for teachers, and prompts to activities that the teacher can initiate in the classroom.
+This article was prepared by the author to serve as a draft for the TNSCERT class 8 chapter on the concept of Sound during the the Tamil Nadu Curriculum Framing (TNCF) workshops that were held in Asha Nivas, Chennai from 13-11-2025 to 15-11-2025, and 09-03-2026 to 10-03-2026.
 \end{abstract}
 
-Every day we experience many natural and human-made sounds around us. At night, we may hear the soft chirping of crickets. At dawn, the sweet chirping of birds welcomes a new day. As the town wakes up, we hear the sounds of buses, cars, two-wheelers, and the honking of horns. In school, the ringing of the bell tells us when a class begins or ends. We also hear raindrops falling on the ground, a dog barking, or a phone ringing.
+\input{introduction}
+\input{activity-vibrating-scale}
+\input{activity-rubber-band-instrument}
+\input{tuning-fork}
 
-Where do these sounds come from? In this chapter, we will explore how sound is produced and how it propagates\footnote{Here the word 'propagate' is used instead of simpler and familiar word like 'travel' to avoid misconceptions that students create, e.g. The word travel suggests that 'sound' is a moving object. Words are chosen to ensure that students develop a scientifically accurate mental model of the concept.} from one place to another. We will also learn that sound can be understood as a wave.
-\newthought{Exercise: }Close your eyes for one minute and listen carefully. Write down all the sounds you hear.
-\subsection{Activity: Vibrating Scale}
-Materials required:
-\begin{enumerate}
-    \item Scale
-    \item Desk or table
-\end{enumerate}
-\newthought{Procedure:} Place the scale on the desk so that about one-third of it is over the edge. Hold the part of the scale resting on the desk with one hand. Push the free end of the scale downward. Release the scale quickly.
-\begin{marginfigure}
-  \includegraphics{scale-down}
-  \caption[Sound with a scale]{Step 1. Push the free end of the scale downwards.}
+In these activities, we notice that sound is produced whenever there is \textbf{vibration}. The type of motion where there is a rapid back and forth or up and down motion is called vibration.
+
+\input{activity-school-bell}
+
+In every activity, sound was produced only when something was moving. We notice that in the absense of any movement, no sound is produced.
+
+\input{activity-pen-cap}
+
+The vibrating part varied between activities.  In the scale, rubber band, tuning fork and school bell, a solid object vibrated.  In the pen cap, the air column inside vibrated. This shows that sound can also be produced by vibration of air.
+
+\input{musical-instruments}
+\input{human-sound}
+
+\section{How Does Sound Propagate?}
+We have seen that a vibrating object produces sound. But how does the sound reach our ears? When an object vibrates, it pushes and pulls the particles around it. These particles push and pull the particles next to them. In this way, the disturbance moves through the material. For example, when you pluck a rubber band, the rubber band vibrates. It pushes and pulls the air around it. The disturbance then passes from one air particle to the next. When the disturbance reaches the air near your eardrum, your eardrum vibrates and you hear the sound.
+
+The particles of air do not travel all the way from the rubber band to your ear. Instead, they pass the disturbance from one particle to the next. What happens if there are no particles around a vibrating object? A region with no matter is called a vacuum. Sound needs matter to carry its vibrations from one place to another. Therefore, sound cannot travel through a vacuum.
+
+There is almost no atmosphere on the Moon. If two astronauts stand a short distance apart on the Moon and one of them shouts, the other cannot hear the sound directly. Because of this, astronauts on the Moon use radios to communicate with each other.
+
+\begin{marginfigure}[-10\baselineskip]
+  \includegraphics{astronauts}
+  \caption{Astronauts on the Moon}
 \end{marginfigure}
-\marginnote{\footnotesize Image credit: Ingrid Sulston, licensed under CC BY-NC-SA 4.0}
-\begin{marginfigure}
-  \includegraphics{scale-vibrate}
-  \caption[Sound with a scale]{Step 2. Let the pushed end go.}
-\end{marginfigure}
-\marginnote{\footnotesize Image credit: Ingrid Sulston, licensed under CC BY-NC-SA 4.0}
-\newthought{Observe:} What happens to the free end of the scale? Do you hear a sound? Do you see the scale move up and down rapidly? What type of motion is this?
-\subsection{Activity: Rubber Band Instrument}
-Materials required:
+
+\marginnote{Did you know? Radios use \textbf{electromagnetic waves}. Electromagnetic waves can travel through empty space.}
+\input{activity-tap-desk}
+\input{activity-string-telephone}
+
+\newthought{Question:} Why can astronauts not hear each other directly on the Moon?
+\input{activity-air-travel-sound}
+
+\section{Sound Waves}
+We have seen that sound is produced by vibrations. But how does this vibration travel from the source to our ears?
+
+\section{Activity: Long Spring}
+\subsection{Materials required}
 \begin{enumerate}
-    \item Rubber bands
-    \item Geometry box
-    \item Two pens or pencils
+\item A long spring or slinky
+\item A small ribbon
 \end{enumerate}
 \begin{marginfigure}
-  \centering
-\begin{tikzpicture}
-    \node[draw,text width=\textwidth] at (0,0) {Image of a pencil box with a rubber band around it.};
+  \includegraphics{slinky}
+  \caption{Long spring also known as a slinky.}
+\end{marginfigure}
+
+Hold one end of the spring while your classmate holds the other end. Stretch the spring gently between you. Tie a small ribbon to a single coil near the middle of the spring. Now give the spring a quick push and then pull it backward quickly along the length of the spring. Watch the ribbon carefully.
+
+\newthought{Observe:} How does the ribbon move? Does the ribbon travel from one end of the spring to the other? In which direction does the ribbon move?
+
+\newthought{Discussion:} You will notice that the ribbon moves back and forth around its original position. However, the tied ribbon does not travel along the spring. Instead, it moves back and forth around its original resting position. 
+
+The ribbon shows how particles behave in a medium when sound propagates. The medium itself does not flow from the source to the listener. Instead, individual particles vibrate back and forth around fixed positions.
+
+Air behaves in a similar way when sound propagates through it. Air particles move back and forth around their usual positions, while the disturbance travels from the source to our ears. See Figure~\ref{fig:wavefront}.
+
+\begin{figure}
+  \begin{tikzpicture}
+    \draw[->] (0,0) -- (4,0);
+    \draw[->] (0,0) -- (230:4);
+    \foreach \i in {2,...,7}{
+      \draw[red,very thick] (0,0) circle [radius=0.5*\i];
+      \draw[red!45, thick] (0,0) circle [radius={0.5*\i+0.1}];
+      \draw[red!45, thick] (0,0) circle [radius={0.5*\i+0.4}];
+      \draw[red!15] (0,0) circle [radius={0.5*\i+0.25}];
+    }
+    \shadedraw [shading=radial,inner color=xkcdBlue,outer color=xkcdBlue!10] (0,0) circle (1cm);
+    \node at (0,0) {\includegraphics[width=1.25cm]{drum}};
+    \node at (70:3) {\includegraphics[height=0.8cm]{ear}};
   \end{tikzpicture}
-  \caption{Pencil box with rubber band around it.}
-  \label{rubberbox}
-\end{marginfigure}
-\newthought{Procedure:} Close the geometry box. Stretch a rubber band across the length of the box. Place a pencil each under the rubber band near the two ends. This will lift the rubber band slightly above the surface of the box. See Figure~\ref{rubberbox}. Pluck the rubber band with your finger.
-\newthought{Observe:} Do you hear a sound? Which part of the setup is moving?
-\subsection{Optional Activity: Tuning Fork}
+  \caption{Sound wave propagates from the source of sound (drum in this case) to the listener in the form of vibrations in the medium.}
+  \label{fig:wavefront}
+\end{figure}
 
-\begin{marginfigure}
-  \includegraphics[width=\textwidth]{tuning-fork}
-  \caption[Tuning fork]{Tuning fork}
-\end{marginfigure}
-\textit{If a tuning fork is available, try this activity.}
-Materials required:
+Consider a plucked string. As the vibrating string moves forward, it pushes the nearby air particles together. These particles collide with those in front of them, creating a region of high particle density and high pressure. See Figure~\ref{fig:vibrating-string-to}.
+\begin{figure}[h]
+  \begin{tikzpicture}
+    \node at (0,0) {\includegraphics{vibrating-string-to}};
+    \draw (0,-2.5) node {String};
+    \node at (1.5,2.75) {High pressure and density (Compression)};
+    \draw[|-|] (0,2.5) -- (3,2.5);
+  \end{tikzpicture}
+  \caption{Compression is the region where the air particles are closely packed.}
+  \label{fig:vibrating-string-to}
+\end{figure}
+
+When the string springs back, it leaves a region behind it with fewer particles, creating a region of low particle density and low pressure. See Figure~\ref{fig:vibrating-string-fro}.
+\begin{figure}[h]
+  \begin{tikzpicture}
+    \node at (0,0) {\includegraphics{vibrating-string-fro}};
+    \node at (1.5,2.75) {Low pressure and density (Rarefaction)};
+    \draw[|-|] (0,2.5) -- (3,2.5);
+    \node at (-1.5,-2.75) {Compression};
+    \draw[|-|] (-3,-2.5) -- (0,-2.5);
+  \end{tikzpicture}
+  \caption{Rarefaction is the region where the air particles are farther apart or loosely packed.}
+  \label{fig:vibrating-string-fro}
+\end{figure}
+
+After some time, the particles that moved forward now move backward. At that time, the same area where density was high earlier now becomes low in density. Just like the plucked string moves back and forth, the air particles also move back and forth. But only the vibration that was first created keeps travelling forward like a wave. See Figure~\ref{fig:compressionRarefaction}.
+
+\begin{figure}[h]
+\begin{tikzpicture}
+        \pic at (0,0) {speaker};
+        \pgfmathsetmacro{\w}{3}
+        \foreach \i in {1,2,3}{
+          \shadedraw[shading=axis,shading angle=90,draw=none] ({1+(\i-1)*\w},-2) rectangle ({1+(\i-1)*\w+\w/2},{-2+\w});
+          \shadedraw[shading=axis,shading angle=-90,draw=none] ({1+(\i-1)*\w+\w/2},-2) rectangle ({1+\i*\w},{-2+\w});
+          \node[below] at ({1+(\i-1)*\w},-2) {C};
+          \node[below] at ({1+(\i-1)*\w+\w/2},-2) {R};
+          }
+          \node[below] at ({1+3*\w},-2) {C};
+    \end{tikzpicture}
+%  \checkparity This is an \pageparity\ page.%
+  \caption{Sound propagates as density variations in the medium. C: Compression, R: Rarefaction}
+  \label{fig:compressionRarefaction}
+%   \zsavepos{pos:ppfig1}
+  \setfloatalignment{b}
+\end{figure}
+
+Therefore, to understand sound easily, we picture it as a wave. The part where the wave rises high represents the compression (tight packing) of air. The part where the wave goes low represents the rarefaction (loose packing) of air particles.
+
+\begin{figure}[h]
+\begin{tikzpicture}
+        \pic[gray!50] at (0,0) {speaker};
+        \pgfmathsetmacro{\w}{3}
+        \pgfmathsetmacro{\d}{0}
+        \foreach \i in {1,2,3}{
+          \shadedraw[shading=axis,shading angle=90,draw=none] ({1+(\i-1)*\w},-2) rectangle ({1+(\i-1)*\w+\w/2},{-2+\w});
+          \shadedraw[shading=axis,shading angle=-90,draw=none] ({1+(\i-1)*\w+\w/2},-2) rectangle ({1+\i*\w},{-2+\w});
+          \node[below] at ({1+(\i-1)*\w},-2) {C};
+          \node[below] at ({1+(\i-1)*\w+\w/2},-2) {R};
+          }
+          \node[below] at ({1+3*\w},-2) {C};
+          \draw[very thick] (1,{1+\d}) cos (1.75,{-.5+\d}) sin (2.5,{-2+\d}) cos (3.25,{-.5+\d}) sin (4,{1+\d}) cos (4.75,{-.5+\d}) sin (5.5,{-2+\d}) cos (6.25,{-.5+\d}) sin (7,{1+\d}) cos (7.75,{-.5+\d}) sin (8.5,{-2+\d}) cos (9.25,{-.5+\d}) sin (10,{1+\d});
+          \draw[very thick,->] (1,{-.5+\d}) -- (11,{-.5+\d}) node[below] {position};
+          \draw[very thick,->] (1,{-2+\d}) -- (1,{1.5+\d}) node[left,text width=4em] {pressure / density};
+    \end{tikzpicture}
+%  \checkparity This is an \pageparity\ page.%
+  \caption{The pressure/density variations in the medium vs. position graph for a sound wave.}
+  \label{fig:compressionRarefaction-wave}
+%   \zsavepos{pos:ppfig1}
+  \setfloatalignment{b}
+\end{figure}
+
+Look again at the spring activity. The ribbon moves back and forth in the same direction in which the disturbance travels along the spring. Waves in which the particles of the medium move back and forth parallel to the direction of wave travel are called longitudinal waves. Sound waves are longitudinal.
+
+\begin{figure}[h]
+\begin{tikzpicture}
+        \pgfmathsetmacro{\w}{3}
+        \pgfmathsetmacro{\d}{0}
+        \draw[<->,very thick] (0,0) -- (6,0) node[below,text width=2.5cm] {direction of propagation of sound wave};
+        \filldraw[white] (3,0) circle [radius=1em];
+        \draw[very thick,yshift=1cm,<->] (1,0) -- (3.5,0) node[midway,above,text width=2.5cm] {direction of particle movement};
+    \end{tikzpicture}
+%  \checkparity This is an \pageparity\ page.%
+  \caption{In longitudinal waves, the particles of the medium move parallel to the direction in which the wave propagates.}
+  \label{fig:longitudinal-wave}
+%   \zsavepos{pos:ppfig1}
+  \setfloatalignment{b}
+\end{figure}
+
+There is another way in which particles can move in a wave. In ocean waves, water appears to physically move up and then fall down. These waves of sea water consist of alternating crests and troughs that represent high and low points. A crest is the highest point or peak, representing maximum positive displacement, while a trough is the lowest point or valley, representing maximum negative displacement. In this case, the particles move perpendicular to the direction in which the wave travels. Such waves are called \textbf{transverse} waves.
+
+\begin{figure}[h]
+  \includegraphics{transverse-wave}
+\caption{In ocean waves, water appears to physically move up and down, forming alternating crests (peaks of positive displacement) and troughs (valleys of negative displacement).}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{tikzpicture}
+        \pgfmathsetmacro{\w}{3}
+        \pgfmathsetmacro{\d}{0}
+        \draw[<->,very thick] (0,0) -- (6,0) node[below,text width=2.5cm] {direction of propagation of sound wave};
+        \filldraw[white] (3,0) circle [radius=1em];
+        \draw[very thick,yshift=0.25cm,<->] (2,0) -- (2,3) node[midway,right,text width=2.5cm] {direction of particle movement};
+    \end{tikzpicture}
+\caption{In transverse waves, the particles of the medium move perpendicular to the direction in which the wave propagates.}
+\end{figure}
+
+A sound wave in air does not have crests and troughs like the wave we drew on paper. The wavy line used to represent how the sound wave changes is only a representation. The actual sound wave consists of particles moving back and forth and regions of compression and rarefaction travelling through the medium. 
+
+\section{Frequency of Sound}
+
+Repeat the Vibrating scale activity. \newthought{Observe:} How does the sound change when the length of the overhanging part changes? Does the scale vibrate faster or slower?
+
+You may notice that when the scale is longer, it vibrates more slowly and the sound is lower. When the scale is shorter, it vibrates faster and the sound is higher. 
+
+\newthought{Discussion:} the number of vibrations that occur in one second is called the \textbf{frequency} of the vibration. Frequency is measured in hertz (\hertz) and usually represented by the Greek letter $\nu$ (nu). Frequency tells us how often an event occurs in a unit of time. Graphically representing sound as a wave helps us understand many of its properties. See Figure~\ref{fig:frequency}.
+\newthought{Example:} if you beat a drum 10 times in one second, the frequency of your beating is 10 \hertz.
+
+\begin{figure}[h]
+\begin{tikzpicture}
+        \pic[gray!50] at (0,0) {speaker};
+        \pgfmathsetmacro{\w}{3}
+        \pgfmathsetmacro{\d}{0}
+        \pgfmathsetmacro{\f}{0.25}
+        \foreach \i in {1,2,3}{
+          \node[below,xkcdRed] at ({1+(\i-1)*\w},-2) {C};
+          \node[below,xkcdRed] at ({1+(\i-1)*\w+\w/2},-2) {R};
+          }
+          \node[below,xkcdRed] at ({1+3*\w},-2) {C};
+          \draw[very thick,xkcdRed] (1,{1+\d}) cos (1.75,{-.5+\d}) sin (2.5,{-2+\d}) cos (3.25,{-.5+\d}) sin (4,{1+\d}) cos (4.75,{-.5+\d}) sin (5.5,{-2+\d}) cos (6.25,{-.5+\d}) sin (7,{1+\d}) cos (7.75,{-.5+\d}) sin (8.5,{-2+\d}) cos (9.25,{-.5+\d}) sin (10,{1+\d});
+          \draw[very thick,->] (1,{-.5+\d}) -- (11,{-.5+\d}) node[below] {position};
+          \draw[very thick,->] (1,{-2+\d}) -- (1,{1.5+\d}) node[left,text width=4em] {pressure / density};
+          \foreach \m in {1,5,9,...,33}{
+          \draw[very thick,xkcdBlue] ({1+(\m-1)*\f},{1+\d}) cos ({1+\m*\f},{-.5+\d}); 
+          \draw[very thick,xkcdBlue] ({1+\m*\f},{-.5+\d}) sin ({1+(\m+1)*\f},{-2+\d}); 
+          \draw[very thick,xkcdBlue] ({1+(\m+1)*\f},{-2+\d}) cos ({1+(\m+2)*\f},{-.5+\d}); 
+          \draw[very thick,xkcdBlue] ({1+(\m+2)*\f},{-.5+\d}) sin ({1+(\m+3)*\f},{1+\d}); 
+          }
+        \foreach \n in {1,2,3,...,9}{
+          \node[xkcdBlue,above] at ({\n*\w/3},1) {C};
+          \node[xkcdBlue,above] at ({\n*\w/3+0.5},1) {R};
+          }
+          \node[xkcdBlue,above] at ({10*\w/3},1) {C};
+    \end{tikzpicture}
+%  \checkparity This is an \pageparity\ page.%
+  \caption{Figure shows sound of two different frequencies. The sound represented as a blue wave has 9 cycles, while the red wave has 3 cycles in the same time. This means that the blue wave completes 3 times as many vibrations in the same time. Therefore, its frequency is 3 times that of the red wave.}\label{fig:frequency}
+%   \zsavepos{pos:ppfig1}
+  \setfloatalignment{b}
+\end{figure}
+\section{Pitch}
+
+Sounds with higher frequency have a higher pitch and sounds with lower frequency have a lower pitch. A mosquito makes a high-pitched sound. A drum makes a low-pitched sound. Which one is vibrating faster?
+
+\section{Activity: Singing Pipe and Glass}
+\subsection{Materials required}
 \begin{enumerate}
-    \item Tuning fork
-    \item Rubber hammer
-    \item Bowl of water
+  \item A glass, transparent cup, or water bottle
+  \item A thin hollow pipe
+  \item pipe
+\end{enumerate}
+\subsection{Procedure}
+Fill the glass about three-quarters full with water. Place the pipe vertically in the water leaving one end of the pipe above the water. Blow gently across the open end of the pipe. Listen to the sound produced. Next, move the pipe up so that a longer part of the pipe is above the water. Blow across the open end again. Move the pipe down so that a shorter part of the pipe is above the water. Blow across the open end again. Compare the sounds.
+
+\newthought{Observe:} Does the sound change when you change the length of the air column?
+\newthought{Discussion:} Changing the length of the air column changes the pitch of the sound.
+\newthought{Question:} Which one is vibrating faster? Mosquito's wings or the membrane of the drum?
+
+\subsection{Amplitude}
+You may also have noticed something else during the vibrating scale activity. When the scale was plucked gently, the sound was soft. When the scale was plucked harder, the sound was louder. 
+
+If you watch the scale carefully, you will see that when it is plucked harder, it moves farther away from its resting position during each vibration.
+
+The size of this vibration is called the \textbf{amplitude}. Amplitude tells us how large the vibration is. A vibration with greater amplitude produces a louder sound, while a vibration with smaller amplitude produces a softer sound. Amplitude affects loudness, not pitch. The sound level can be measured using a unit called the decibel (dB). In a graphical representation of a sound wave, the amplitude is shown by the distance of the wave from its middle or resting position. A larger amplitude is shown by a taller wave. See Figure~\ref{fig:amplitude}.
+
+\begin{figure}[h]
+\begin{tikzpicture}
+        \pic[gray!50] at (0,0) {speaker};
+        \pgfmathsetmacro{\w}{3}
+        \pgfmathsetmacro{\d}{0}
+        \pgfmathsetmacro{\f}{0.75}
+        \foreach \i in {1,2,3}{
+          \node[below] at ({1+(\i-1)*\w},-2) {C};
+          \node[below] at ({1+(\i-1)*\w+\w/2},-2) {R};
+          }
+          \node[below] at ({1+3*\w},-2) {C};
+          \draw[very thick] (1,{1+\d}) cos (1.75,{-.5+\d}) sin (2.5,{-2+\d}) cos (3.25,{-.5+\d}) sin (4,{1+\d}) cos (4.75,{-.5+\d}) sin (5.5,{-2+\d}) cos (6.25,{-.5+\d}) sin (7,{1+\d}) cos (7.75,{-.5+\d}) sin (8.5,{-2+\d}) cos (9.25,{-.5+\d}) sin (10,{1+\d});
+          \draw[very thick,->] (1,{-.5+\d}) -- (11,{-.5+\d}) node[below] {position};
+          \draw[very thick,->] (1,{-2+\d}) -- (1,{1.5+\d}) node[left,text width=4em] {pressure / density};
+          \foreach \m in {1,5,9}{
+          \draw[very thick,xkcdBlue] ({1+(\m-1)*\f},{1.75+\d}) cos ({1+\m*\f},{-.5+\d}); 
+          \draw[very thick,xkcdBlue] ({1+\m*\f},{-.5+\d}) sin ({1+(\m+1)*\f},{-2.75+\d}); 
+          \draw[very thick,xkcdBlue] ({1+(\m+1)*\f},{-2.75+\d}) cos ({1+(\m+2)*\f},{-.5+\d}); 
+          \draw[very thick,xkcdBlue] ({1+(\m+2)*\f},{-.5+\d}) sin ({1+(\m+3)*\f},{1.75+\d}); 
+          }
+        \foreach \n in {1,2,3}{
+          \node[xkcdBlue,above] at ({1+(\n-1)*\w},2) {C};
+          \node[xkcdBlue,above] at ({1+(\n-1)*\w+\w/2},2) {R};
+          }
+          \node[xkcdBlue,above] at ({1+3*\w},2) {C};
+    \end{tikzpicture}
+%  \checkparity This is an \pageparity\ page.%
+  \caption{Figure shows sound of two different amplitudes. The sound represented as a blue wave has larger amplitude compared to the black wave.}\label{fig:amplitude}
+%   \zsavepos{pos:ppfig1}
+  \setfloatalignment{b}
+\end{figure}
+
+\newthought{Question:} Two sounds have the same pitch, but one is louder. What must be different?
+
+\marginnote{Pitch depends on frequency, which is determined by the source. Distance from the source does not change the frequency. As sound spreads out, its amplitude decreases, this is why it becomes quieter as you move far from the source.}
+
+\section{Wavelength}
+The distance between two neighbouring compressions (or two neighbouring rarefactions) is called the \textbf{wavelength}. Wavelength is measured in the units of distance. The SI unit of distance is the metre (m). Wavelength is usually represented by the Greek letter $\lambda$ (lambda). In the graphical representation of sound as wave, the distance between two neighbouring compressions (or two neighbouring rarefactions) is the wavelength. See Figure~\ref{fig:wavelength}. 
+\begin{figure}[h]
+\begin{tikzpicture}
+        \pic[gray!50] at (0,0) {speaker};
+        \pgfmathsetmacro{\w}{3}
+        \pgfmathsetmacro{\d}{0}
+        \foreach \i in {1,2,3}{
+          \node[below] at ({1+(\i-1)*\w},-2) {C};
+          \node[below] at ({1+(\i-1)*\w+\w/2},-2) {R};
+          }
+          \node[below] at ({1+3*\w},-2) {C};
+          \draw[very thick] (1,{1+\d}) cos (1.75,{-.5+\d}) sin (2.5,{-2+\d}) cos (3.25,{-.5+\d}) sin (4,{1+\d}) cos (4.75,{-.5+\d}) sin (5.5,{-2+\d}) cos (6.25,{-.5+\d}) sin (7,{1+\d}) cos (7.75,{-.5+\d}) sin (8.5,{-2+\d}) cos (9.25,{-.5+\d}) sin (10,{1+\d});
+          \draw[very thick,->] (1,{-.5+\d}) -- (11,{-.5+\d}) node[below] {position};
+          \draw[very thick,->] (1,{-2+\d}) -- (1,{1.5+\d}) node[left,text width=4em] {pressure / density};
+          \draw[|-|,yshift=-2.5cm] (2.5,0) -- ++(3,0) node[midway,below] {$\lambda$};
+          \draw[|-|,yshift=1.5cm] (4,0) -- ++(3,0) node[midway,above] {$\lambda$};
+    \end{tikzpicture}
+%  \checkparity This is an \pageparity\ page.%
+  \caption{The distance between two neighbouring compressions (or two neighbouring rarefactions) is the wavelength ($\lambda$).}\label{fig:wavelength}
+%   \zsavepos{pos:ppfig1}
+  \setfloatalignment{b}
+\end{figure}
+
+Repeat the activity, but now create compressions more quickly.
+
+\newthought{Observe:} When vibrations happen more often each second (higher frequency), the compressions are packed closer together and the wavelength becomes shorter.
+
+Almost all natural sounds (a human voice, falling rain, or a musical instrument) are a complex mixture of multiple sound waves with different frequencies, amplitudes, and wavelengths traveling together through the air.
+\begin{figure}
+  \begin{tikzpicture}
+    \node[yshift=-4em] at (0,0) {\includegraphics[width=3cm]{cos6x}};
+    \node[yshift=-3em] at (0,1) {$+$};
+    \node[yshift=-2em] at (0,2) {\includegraphics[width=3cm]{3by2Cos3xby2}};
+    \node[yshift=-1em] at (0,3) {$+$};
+    \node at (0,4) {\includegraphics[width=3cm]{2sin2xby3}};
+    \node[yshift=1em] at (0,5) {$+$};
+    \node[yshift=2em] at (0,6) {\includegraphics[width=3cm]{sin2x}};
+    \node[yshift=3em] at (0,7) {$+$};
+    \node[yshift=4em] at (0,8) {\includegraphics[width=3cm]{sinx}};
+    \node at (-2,4) {$=$};
+    \node at (-4,4) {\includegraphics[width=3cm]{total}};
+  \end{tikzpicture}
+  \caption{The natural sound is a mixture of sound waves with various frequency and wavelengths.}
+\end{figure}
+
+\section{Speed of Sound}
+Do we hear sound instantly after it is produced? Think about what happens during lightning and thunder. When lightning strikes, we see a flash of light and hear thunder.
+
+\newthought{Observe:} Do you see the lightning and hear the thunder at the same time? Or do they happen one after the other? Which do you notice first?
+
+Usually, we see the lightning first and hear the thunder later.
+\begin{marginfigure}
+  \includegraphics{thunder}
+  \caption[Thunder and lightening]{Thunderstorm in Tiruchirappalli, Photo by Amol Mande}
+\end{marginfigure}
+\marginnote{If the thunder sounds quieter when you are farther away, does the thunder have less energy when it reaches you?}
+These observations show that sound takes time to propagate from the source to our ears. Light travels much faster than sound, so we see the flash before we hear the sound. 
+
+In air, sound propagates at a speed of about 340 metres per second (at room temperature). The speed of a sound wave depends on both its frequency and its wavelength.
+
+\begin{equation}
+\text{Speed} = \text{Frequency}\times\text{Wavelength}
+\end{equation}
+Sound does not propagate at the same speed in all materials. The speed of sound depends on the medium through which it propagates. Sound propagates fastest in solids, slower in liquids, and slowest in gases. For example, sound propagates faster in metal or wood than in air. This is because the particles in solids are closer together, allowing vibrations to pass more quickly from one particle to the next. 
+
+\newthought{Question:} How does temperature affect the speed of sound?
+
+\marginnote{As the temperature increases, the speed of sound increases. This happens because when the temperature is higher, the particles of the medium move faster. As a result, they pass the vibrations to neighbouring particles more quickly, allowing sound to propagate faster. For example, sound travels faster in warm air than in cold air.}
+
+\section{How Humans Hear and Process Sound}
+The human ear converts sound waves into electrical signals for the brain. The visible outer part (pinna) channels sound waves into the ear canal. Sound waves hit a thin membrane called the eardrum (tympanic membrane), causing it to vibrate. These vibrations pass to three tiny bones called ossicles—the malleus (hammer), incus (anvil), and stapes (stirrup). These bones amplify the vibrations. The amplified vibrations pass into the cochlea, a snail-shaped tube filled with liquid. Liquid ripples move thousands of microscopic hair cells. These hair cells convert mechanical vibrations into electrical signals. The auditory nerve carries electrical signals to the brain, which interprets them as speech or music.
+\begin{marginfigure}
+  \includegraphics{HumanEar}
+  \caption{Diagram of the auditory system of the human ear. Image source: SASOL Inzalo Foundation.}
+\end{marginfigure}
+
+\section{Noise Pollution}
+Unwanted or unpleasant sound is called noise. When there is too much noise in our surroundings, it leads to noise pollution.
+
+Common sources of noise pollution include traffic noise from vehicles and horns, loudspeakers used at high volume,industrial noise from machines and factories, construction activities.
+
+Continuous exposure to loud noise can cause stress, lack of sleep, and hearing problems. How can we reduce noise pollution?
+
+We can reduce noise pollution by avoiding unnecessary honking on the roads, keeping the volume of loudspeakers low, using silencers and maintaining vehicles properly, planting trees, which can help absorb sound, following rules and regulations about noise levels.
+
+Reducing noise pollution helps create a healthier and more peaceful environment.
+\marginnote{If you pick up a seashell on a beach and hold it close to your ear, you may hear a sound that resembles waves breaking on the shore. Where does this sound come from?}
+
+\subsection{Hearing loss and hearing aids}
+Sounds above 85 dB (such as loud headphones, factory machines, or heavy traffic) can bend and snap the delicate hair cells inside the cochlea. Broken hair cells cannot regrow. Hearing aids are devices that help by amplifying incoming sound waves so remaining hair cells can detect them.
+\begin{marginfigure}
+\begin{tikzpicture}
+  \node[draw] at (0,0) {Image of hearing aid};
+\end{tikzpicture}
+  \caption{Image of hearing aid}
+\end{marginfigure}
+
+When you listen to an audio recording of your voice, sound reaches your ears strictly through air conduction. The sound propagates from the speaker through air into our ear canal. When you speak live, sound reaches your inner ear through two paths at once. One, the sound propagates out of our mouth and around to our ears, and two, vibrations from the mouth also spread directly through our jaw and skull bones to our inner ear. Our skull bones lower the pitch of vibrations, making your voice sound deeper to you while speaking than it does on a recording!
+
+
+% ---------------------------------------------------------------------------------
+% ---------------------------------------------------------------------------------
+\end{document}
+Consider the case of a vibrating string. When the string vibrates, it pushes and pulls the particles around it. These particles push and pull the particles next to them. In this way, the disturbance moves through the medium. See Figure~\ref{fig:vibrating-string}.
+\begin{figure}
+  \begin{tikzpicture}
+    \node at (0,0) {\includegraphics[width=10cm]{vibrating-string}};
+    \draw (0,0) -- (0,0.5) node {String};
+    \draw (0,1.5) -- (0,1);
+    \draw (0,5) -- (3,5) node [midway] {Compression (high pressure)};
+    \draw (-2,5) -- (0,5) node [midway] {Rarefaction (low pressure)};
+    \draw (-2,-4) -- (0,-4) node [midway] {Rarefaction (low pressure)};
+    \draw (0,0) grid (5,5);
+  \end{tikzpicture}
+  \caption{Sound wave propagates from the source of sound (drum in this case) to the listener in the form of vibrations in the medium.}
+  \label{fig:vibrating-string}
+\end{figure}
+
+
+
+
+
+In such waves, the particles of the medium move parallel to the direction in which the wave propagates. Such waves are called \textbf{longitudinal waves}. Sound propagates as a longitudinal wave through solids, liquids, and gases.
+
+
+\subsection{Compressions and Rarefactions}
+When sound propagates through air, the air particles move back and forth around their positions. As they move, the particles sometimes come closer together and sometimes move farther apart. Regions where the air particles are closely packed are called \textbf{compressions}. Regions where the particles are farther apart are called \textbf{rarefactions}. See Figure~\ref{fig:compressionRarefaction}.
+
+As a sound wave propagates, compressions and rarefactions move forward through the air. This pattern of compressions and rarefactions carries sound from the source to our ears.
+
+
+\newpage
+\section{Frequency of Sound}
+\subsection{Activity: Vibrating Scale}
+Place a scale on the edge of a desk so that part of it stays over the edge. Hold the scale firmly on the desk and pluck the free end so that it vibrates and produces a sound. Optionally, you may record a slow-motion video using a phone.
+
+
+
+
+
+
+
+
+
+\newthought{Question:} A bell is struck and produces sound. After a few seconds, the sound stops. What must have happened to the bell?
+
+\newthought{Question:} Kavin and Priya are standing at different distances from the lightning. Both hear the thunder. Will the pitch of the thunder be different for them? Will the loudness of the thunder be different?
+
+
+\subsection{Activity: long spring}
+
+Take a long spring. Ask your classmate to hold one end while you hold the other end. Stretch the long spring gently between you. Now give the long spring a quick push toward your classmate.
+
+\newthought{Observe:} You will see regions where the coils are close together and regions where they are farther apart. A region where the coils are close together is called a compression. A region where the coils are farther apart is called a rarefaction. This is similar to what happens in sound waves in air.
+
+
+
+
+
+\subsection{Musical instruments}
+Musical instruments produce sound by making strings, membranes, or air columns vibrate. By changing certain parts of the instrument, musicians can change the frequency of vibration, and therefore the pitch of the sound.
+
+Different instruments change the frequency in different ways.
+
+Veena (string instrument): The strings vibrate to produce sound. Pressing the string at different positions changes the length of the vibrating string, which changes the frequency and the pitch.
+\begin{marginfigure}
+  \includegraphics{veena}
+  \caption{Veena from Chennai, Wikimedia Commons}
+\end{marginfigure}
+
+Parai (drum): The stretched membrane (skin) vibrates when it is struck. Changing the tightness of the membrane changes the frequency of vibration and the sound produced.
+\begin{marginfigure}
+  \includegraphics{parai}
+\caption{Front side of a parai with the sticks used to play the instrument. Image by Prabhunkl, licensed under CC BY-SA 4.0}  
+\end{marginfigure}
+Nadaswaram (wind instrument): Sound is produced by vibrations of the air column inside the instrument. Opening and closing the finger holes changes the effective length of the air column, which changes the frequency.
+\begin{marginfigure}[-25\baselineskip]
+  \includegraphics{nadaswaram}
+\caption{Nadaswaram (also nagaswaram or nagasuram), Image by Ashwin Kamath}
+\end{marginfigure}
+Although these instruments look very different, they all produce sound through vibrations, and the frequency of vibration determines the pitch of the sound.
+
+\subsection{Ultrasound}
+Humans can hear sounds with frequencies roughly between 20 \hertz and 20,000 \hertz. Sounds with frequencies higher than 20,000 \hertz are called ultrasound. Humans cannot hear ultrasound.
+
+Ultrasound has many useful applications:
+
+\begin{enumerate}
+\item Medical imaging: Doctors use ultrasound to look inside the body, for example to observe a developing fetus during pregnancy.
+% \begin{marginfigure}
+%   \includegraphics{ultrasound}
+% \caption{Image of Ultrasound Machine}
+% \end{marginfigure}
+\item Detecting cracks in materials: Ultrasound can be used to find cracks or defects in metals and other materials.
+\item Animal communication and navigation: Some animals, such as bats and dolphins, produce and detect ultrasound. They use it to communicate and to find objects around them.
+\begin{marginfigure}
+\includegraphics{bat}
+\caption{Greater Indian fruit bat, image by Praveenp, licensed under CC BY-SA 4.0}
+\end{marginfigure}
 \end{enumerate}
 
-\end{document}
+\subsection{Echo}
+Sound travels at a finite speed. When a sound wave meets a surface such as a wall, cliff, or building, it can reflect and travel back toward the source.
+
+An echo is heard when the reflected sound reaches our ears after a short delay.
+
+For an echo to be heard clearly, the reflecting surface must be far enough away. If the surface is too close, the reflected sound mixes with the original sound and we do not hear a separate echo.
+
+For example, when you shout in a large empty hall, valley, or near a cliff, you may hear your own voice repeated after a short time. This repeated sound is the echo. Echoes show that sound waves can reflect from surfaces and travel back to us.
+\begin{figure}[h!]
+  \includegraphics{echo}
+  \caption{Image source: SASOL Inzalo Foundation}
+\end{figure}
+
+\subsection{Echolocation}
+Animals such as bats and dolphins produce sounds and listen to the echoes to locate objects around them.
+\subsection{Sonar}
+Ships and submarines use sound waves and their echoes to detect objects underwater and measure distances.
+
+
+\subsection{}
+Sound is an example of a mechanical wave. It is also a longitudinal wave, because the particles of the medium vibrate along the direction in which the wave propagates. There is another type of wave called a transverse wave. In a transverse wave, the particles of the medium move perpendicular to the direction in which the wave propagates. In other words, the particles move up and down, while the wave moves forward.
+
+An example of a transverse wave can be seen when a pebble is dropped into a pond. The ripples that spread across the surface of the water are transverse waves.
+
+Light is also a transverse wave. However, light does not need a material medium to propagate, so it is not a mechanical wave.
+
+The world around us is full of waves - sound waves, water waves, and light waves.
+% \newpage
+% \nocite{halliday2013fundamentals}
+% \nocite{walker2006flying}
+% \nocite{PhysRevSTPER.6.020114}
+
+% \bibliographystyle{plainnat}
+% \bibliography{sound}
+
+
+Similarly, the particles in the medium do not travel all the way from the sound source to our ears. They move back and forth around their usual positions. A disturbance that travels through a medium in this way is called a \textbf{wave}. Sound propagates through air as a sound wave. 

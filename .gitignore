@@ -1,3 +1,6 @@
+*.run.xml
+*.idx
+*.bcf
 references/
 sample-book.*
 .DS_Store
