@@ -19,17 +19,19 @@
     }
 }
 \begin{document}
-  \begin{tikzpicture}
-    \node[yshift=-4em] at (0,0) {\includegraphics[width=3cm]{cos6x}};
-    \node[yshift=-3em] at (0,1) {$+$};
-    \node[yshift=-2em] at (0,2) {\includegraphics[width=3cm]{3by2Cos3xby2}};
-    \node[yshift=-1em] at (0,3) {$+$};
-    \node at (0,4) {\includegraphics[width=3cm]{2sin2xby3}};
-    \node[yshift=1em] at (0,5) {$+$};
-    \node[yshift=2em] at (0,6) {\includegraphics[width=3cm]{sin2x}};
-    \node[yshift=3em] at (0,7) {$+$};
-    \node[yshift=4em] at (0,8) {\includegraphics[width=3cm]{sinx}};
-    \node at (-2,4) {$=$};
-    \node at (-4,4) {\includegraphics[width=3cm]{total}};
-  \end{tikzpicture}
+\begin{tikzpicture}
+        \pgfmathsetmacro{\w}{3}
+        \pgfmathsetmacro{\d}{0}
+        \pgfmathsetmacro{\f}{0.6}
+        \draw (0,0) -- ++(0:30) --++ (80:5);
+        %   \draw[very thick,->] (1,{-.5+\d}) -- (11,{-.5+\d}) node[below] {position};
+        %   \draw[very thick,->] (1,{-2+\d}) -- (1,{1.5+\d}) node[left,text width=4em] {pressure / density};
+        %   \foreach \m in {1,5,9,13}{
+        %   \draw[very thick,xkcdBlue] ({1+(\m-1)*\f},{1+\d}) cos ({1+\m*\f},{-.5+\d}); 
+        %   \draw[very thick,xkcdBlue] ({1+\m*\f},{-.5+\d}) sin ({1+(\m+1)*\f},{-2+\d}); 
+        %   \draw[very thick,xkcdBlue] ({1+(\m+1)*\f},{-2+\d}) cos ({1+(\m+2)*\f},{-.5+\d}); 
+        %   \draw[very thick,xkcdBlue] ({1+(\m+2)*\f},{-.5+\d}) sin ({1+(\m+3)*\f},{1+\d}); 
+        %   }
+    \end{tikzpicture}
+
 \end{document}

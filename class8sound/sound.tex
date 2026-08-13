@@ -129,7 +129,6 @@ Air behaves in a similar way when sound propagates through it. Air particles mov
       \draw[red!45, thick] (0,0) circle [radius={0.5*\i+0.4}];
       \draw[red!15] (0,0) circle [radius={0.5*\i+0.25}];
     }
-    \shadedraw [shading=radial,inner color=xkcdBlue,outer color=xkcdBlue!10] (0,0) circle (1cm);
     \node at (0,0) {\includegraphics[width=1.25cm]{drum}};
     \node at (70:3) {\includegraphics[height=0.8cm]{ear}};
   \end{tikzpicture}
@@ -245,6 +244,7 @@ There is another way in which particles can move in a wave. In ocean waves, wate
 
 A sound wave in air does not have crests and troughs like the wave we drew on paper. The wavy line used to represent how the sound wave changes is only a representation. The actual sound wave consists of particles moving back and forth and regions of compression and rarefaction travelling through the medium. 
 
+\newpage
 \section{Frequency of Sound}
 
 Repeat the Vibrating scale activity. \newthought{Observe:} How does the sound change when the length of the overhanging part changes? Does the scale vibrate faster or slower?
@@ -252,6 +252,7 @@ Repeat the Vibrating scale activity. \newthought{Observe:} How does the sound ch
 You may notice that when the scale is longer, it vibrates more slowly and the sound is lower. When the scale is shorter, it vibrates faster and the sound is higher. 
 
 \newthought{Discussion:} the number of vibrations that occur in one second is called the \textbf{frequency} of the vibration. Frequency is measured in hertz (\hertz) and usually represented by the Greek letter $\nu$ (nu). Frequency tells us how often an event occurs in a unit of time. Graphically representing sound as a wave helps us understand many of its properties. See Figure~\ref{fig:frequency}.
+
 \newthought{Example:} if you beat a drum 10 times in one second, the frequency of your beating is 10 \hertz.
 
 \begin{figure}[h]
@@ -285,6 +286,32 @@ You may notice that when the scale is longer, it vibrates more slowly and the so
 %   \zsavepos{pos:ppfig1}
   \setfloatalignment{b}
 \end{figure}
+\newpage
+\newthought{Exercise:} Look at the wave diagram in Figure~22, it shows a sound wave recorded over a time period of 2 seconds. Mark and label the regions of compressions and rarefactions on the diagram.
+
+\begin{figure}[h]
+\begin{tikzpicture}
+%         \pgfmathsetmacro{\w}{3}
+        \pgfmathsetmacro{\d}{0}
+        \pgfmathsetmacro{\f}{0.6}
+          \draw[very thick,->] (1,{-.5+\d}) -- (11,{-.5+\d}) node[below] {position};
+          \draw[very thick,->] (1,{-2+\d}) -- (1,{1.5+\d}) node[above,text width=4em] {pressure / density};
+          \foreach \m in {1,5,9,13}{
+          \draw[very thick,xkcdPurple] ({1+(\m-1)*\f},{1+\d}) cos ({1+\m*\f},{-.5+\d}); 
+          \draw[very thick,xkcdPurple] ({1+\m*\f},{-.5+\d}) sin ({1+(\m+1)*\f},{-2+\d}); 
+          \draw[very thick,xkcdPurple] ({1+(\m+1)*\f},{-2+\d}) cos ({1+(\m+2)*\f},{-.5+\d}); 
+          \draw[very thick,xkcdPurple] ({1+(\m+2)*\f},{-.5+\d}) sin ({1+(\m+3)*\f},{1+\d}); 
+          }
+    \end{tikzpicture}
+  \caption{Sound wave recorded over a time period of 2 seconds.}\label{fig:frequency-exercise}
+  \setfloatalignment{b}
+  \end{figure}
+
+  \newthought{Exercise:} Count the total number of complete wave cycles that occur within the 2-second time period shown in the figure. A cycle (or wave cycle) is one complete pattern of a wave. For a sound wave, one single cycle consists of one full compression plus one full rarefaction (or the distance from the start of one compression to the start of the next). It represents one complete back-and-forth vibration.
+
+  \newthought{Exercise:} Use your count from the previou exercise to calculate the frequency of the wave. Frequency is the number of complete cycles per second, measured in Hertz (\hertz).
+
+\newpage
 \section{Pitch}
 
 Sounds with higher frequency have a higher pitch and sounds with lower frequency have a lower pitch. A mosquito makes a high-pitched sound. A drum makes a low-pitched sound. Which one is vibrating faster?
@@ -294,10 +321,11 @@ Sounds with higher frequency have a higher pitch and sounds with lower frequency
 \begin{enumerate}
   \item A glass, transparent cup, or water bottle
   \item A thin hollow pipe
-  \item pipe
+  \item water
 \end{enumerate}
 \subsection{Procedure}
 Fill the glass about three-quarters full with water. Place the pipe vertically in the water leaving one end of the pipe above the water. Blow gently across the open end of the pipe. Listen to the sound produced. Next, move the pipe up so that a longer part of the pipe is above the water. Blow across the open end again. Move the pipe down so that a shorter part of the pipe is above the water. Blow across the open end again. Compare the sounds.
+\marginnote{Ask your teacher to help you use the \textbf{Phyphox} app on their smartphone to measure the frequency of the sounds. Compare the frequency of the high-pitched and low-pitched sounds.}
 
 \newthought{Observe:} Does the sound change when you change the length of the air column?
 \newthought{Discussion:} Changing the length of the air column changes the pitch of the sound.
@@ -415,14 +443,15 @@ Sound does not propagate at the same speed in all materials. The speed of sound 
 \newthought{Question:} How does temperature affect the speed of sound?
 
 \marginnote{As the temperature increases, the speed of sound increases. This happens because when the temperature is higher, the particles of the medium move faster. As a result, they pass the vibrations to neighbouring particles more quickly, allowing sound to propagate faster. For example, sound travels faster in warm air than in cold air.}
+\newpage
+\section{How Do We Hear and Process Sound}
+The human ear converts sound waves into electrical signals for the brain. First, the outer part of our ear, called the pinna, collects sound waves and guides them down the ear canal. At the end of this canal, the sound waves strike a thin membrane called the eardrum, making it vibrate like the skin of a drum. The eardrum is connected to three tiny bones inside the ear. These bones are called the malleus, incus, and stapes. These bones amplify the vibrations. The amplified vibrations pass into the cochlea, a snail-shaped tube filled with liquid. As the liquid inside the cochlea ripples, it stimulates tiny hair cells inside the cochlea. These hair cells convert mechanical vibrations into electrical signals. The auditory nerve carries electrical signals to the brain, which interprets them as speech or music.
 
-\section{How Humans Hear and Process Sound}
-The human ear converts sound waves into electrical signals for the brain. The visible outer part (pinna) channels sound waves into the ear canal. Sound waves hit a thin membrane called the eardrum (tympanic membrane), causing it to vibrate. These vibrations pass to three tiny bones called ossicles—the malleus (hammer), incus (anvil), and stapes (stirrup). These bones amplify the vibrations. The amplified vibrations pass into the cochlea, a snail-shaped tube filled with liquid. Liquid ripples move thousands of microscopic hair cells. These hair cells convert mechanical vibrations into electrical signals. The auditory nerve carries electrical signals to the brain, which interprets them as speech or music.
-\begin{marginfigure}
+\begin{figure}[h]
   \includegraphics{HumanEar}
   \caption{Diagram of the auditory system of the human ear. Image source: SASOL Inzalo Foundation.}
-\end{marginfigure}
-
+\end{figure}
+\newpage
 \section{Noise Pollution}
 Unwanted or unpleasant sound is called noise. When there is too much noise in our surroundings, it leads to noise pollution.
 
@@ -433,9 +462,8 @@ Continuous exposure to loud noise can cause stress, lack of sleep, and hearing p
 We can reduce noise pollution by avoiding unnecessary honking on the roads, keeping the volume of loudspeakers low, using silencers and maintaining vehicles properly, planting trees, which can help absorb sound, following rules and regulations about noise levels.
 
 Reducing noise pollution helps create a healthier and more peaceful environment.
-\marginnote{If you pick up a seashell on a beach and hold it close to your ear, you may hear a sound that resembles waves breaking on the shore. Where does this sound come from?}
 
-\subsection{Hearing loss and hearing aids}
+\section{Hearing loss and hearing aids}
 Sounds above 85 dB (such as loud headphones, factory machines, or heavy traffic) can bend and snap the delicate hair cells inside the cochlea. Broken hair cells cannot regrow. Hearing aids are devices that help by amplifying incoming sound waves so remaining hair cells can detect them.
 \begin{marginfigure}
 \begin{tikzpicture}
@@ -444,8 +472,10 @@ Sounds above 85 dB (such as loud headphones, factory machines, or heavy traffic)
   \caption{Image of hearing aid}
 \end{marginfigure}
 
+\section{}
 When you listen to an audio recording of your voice, sound reaches your ears strictly through air conduction. The sound propagates from the speaker through air into our ear canal. When you speak live, sound reaches your inner ear through two paths at once. One, the sound propagates out of our mouth and around to our ears, and two, vibrations from the mouth also spread directly through our jaw and skull bones to our inner ear. Our skull bones lower the pitch of vibrations, making your voice sound deeper to you while speaking than it does on a recording!
 
+\marginnote{If you pick up a seashell on a beach and hold it close to your ear, you may hear a sound that resembles waves breaking on the shore. Where does this sound come from?}
 
 % ---------------------------------------------------------------------------------
 % ---------------------------------------------------------------------------------
