@@ -20,18 +20,18 @@
 }
 \begin{document}
 \begin{tikzpicture}
+    \draw[yshift=0.5cm,very thin,gray!50] (-1,-3) grid (13,2);
         \pgfmathsetmacro{\w}{3}
         \pgfmathsetmacro{\d}{0}
-        \pgfmathsetmacro{\f}{0.6}
-        \draw (0,0) -- ++(0:30) --++ (80:5);
-        %   \draw[very thick,->] (1,{-.5+\d}) -- (11,{-.5+\d}) node[below] {position};
-        %   \draw[very thick,->] (1,{-2+\d}) -- (1,{1.5+\d}) node[left,text width=4em] {pressure / density};
-        %   \foreach \m in {1,5,9,13}{
-        %   \draw[very thick,xkcdBlue] ({1+(\m-1)*\f},{1+\d}) cos ({1+\m*\f},{-.5+\d}); 
-        %   \draw[very thick,xkcdBlue] ({1+\m*\f},{-.5+\d}) sin ({1+(\m+1)*\f},{-2+\d}); 
-        %   \draw[very thick,xkcdBlue] ({1+(\m+1)*\f},{-2+\d}) cos ({1+(\m+2)*\f},{-.5+\d}); 
-        %   \draw[very thick,xkcdBlue] ({1+(\m+2)*\f},{-.5+\d}) sin ({1+(\m+3)*\f},{1+\d}); 
-        %   }
-    \end{tikzpicture}
+        \foreach \i in {1,2,3,...,10}{
+          \node[below right] at (\i,0) {\i};
+        %   \node[below] at ({1+(\i-1)*\w+\w/2},-2) {R};
+          }
+        %   \node[below] at ({1+3*\w},-2) {C};
+          \draw[very thick] (1,{1+\d}) cos (1.75,{-.5+\d}) sin (2.5,{-2+\d}) cos (3.25,{-.5+\d}) sin (4,{1+\d}) cos (4.75,{-.5+\d}) sin (5.5,{-2+\d}) cos (6.25,{-.5+\d}) sin (7,{1+\d}) cos (7.75,{-.5+\d}) sin (8.5,{-2+\d}) cos (9.25,{-.5+\d}) sin (10,{1+\d});
+          \draw[very thick,->] (1,{-.5+\d}) -- (11,{-.5+\d}) node[below] {position (cm)};
+          \draw[very thick,->] (1,{-2+\d}) -- (1,{1.5+\d}) node[left,text width=4em] {pressure / density};
+          \draw[|-|,yshift=1.5cm] (4,0) -- ++(3,0) node[midway,above,text=white,fill=white,draw,text width=2em] {$\lambda$};
 
+    \end{tikzpicture}
 \end{document}

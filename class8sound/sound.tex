@@ -108,8 +108,14 @@ We have seen that sound is produced by vibrations. But how does this vibration t
   \includegraphics{slinky}
   \caption{Long spring also known as a slinky.}
 \end{marginfigure}
-
+\subsection{Procedure}
 Hold one end of the spring while your classmate holds the other end. Stretch the spring gently between you. Tie a small ribbon to a single coil near the middle of the spring. Now give the spring a quick push and then pull it backward quickly along the length of the spring. Watch the ribbon carefully.
+\begin{marginfigure}
+\begin{tikzpicture}
+  \node[draw] at (0,0) {Illustration of long spring with a ribbon tied to it somewhat in the middle};
+\end{tikzpicture}
+  \caption{Illustration of long spring with a ribbon tied to it somewhat in the middle}
+\end{marginfigure}
 
 \newthought{Observe:} How does the ribbon move? Does the ribbon travel from one end of the spring to the other? In which direction does the ribbon move?
 
@@ -117,24 +123,24 @@ Hold one end of the spring while your classmate holds the other end. Stretch the
 
 The ribbon shows how particles behave in a medium when sound propagates. The medium itself does not flow from the source to the listener. Instead, individual particles vibrate back and forth around fixed positions.
 
-Air behaves in a similar way when sound propagates through it. Air particles move back and forth around their usual positions, while the disturbance travels from the source to our ears. See Figure~\ref{fig:wavefront}.
+% Air behaves in a similar way when sound propagates through it. Air particles move back and forth around their usual positions, while the disturbance travels from the source to our ears. See Figure~\ref{fig:wavefront}.
 
-\begin{figure}
-  \begin{tikzpicture}
-    \draw[->] (0,0) -- (4,0);
-    \draw[->] (0,0) -- (230:4);
-    \foreach \i in {2,...,7}{
-      \draw[red,very thick] (0,0) circle [radius=0.5*\i];
-      \draw[red!45, thick] (0,0) circle [radius={0.5*\i+0.1}];
-      \draw[red!45, thick] (0,0) circle [radius={0.5*\i+0.4}];
-      \draw[red!15] (0,0) circle [radius={0.5*\i+0.25}];
-    }
-    \node at (0,0) {\includegraphics[width=1.25cm]{drum}};
-    \node at (70:3) {\includegraphics[height=0.8cm]{ear}};
-  \end{tikzpicture}
-  \caption{Sound wave propagates from the source of sound (drum in this case) to the listener in the form of vibrations in the medium.}
-  \label{fig:wavefront}
-\end{figure}
+% \begin{figure}
+%   \begin{tikzpicture}
+%     \draw[->] (0,0) -- (4,0);
+%     \draw[->] (0,0) -- (230:4);
+%     \foreach \i in {2,...,7}{
+%       \draw[red,very thick] (0,0) circle [radius=0.5*\i];
+%       \draw[red!45, thick] (0,0) circle [radius={0.5*\i+0.1}];
+%       \draw[red!45, thick] (0,0) circle [radius={0.5*\i+0.4}];
+%       \draw[red!15] (0,0) circle [radius={0.5*\i+0.25}];
+%     }
+%     \node at (0,0) {\includegraphics[width=1.25cm]{drum}};
+%     \node at (70:3) {\includegraphics[height=0.8cm]{ear}};
+%   \end{tikzpicture}
+%   \caption{Sound wave propagates from the source of sound (drum in this case) to the listener in the form of vibrations in the medium.}
+%   \label{fig:wavefront}
+% \end{figure}
 
 Consider a plucked string. As the vibrating string moves forward, it pushes the nearby air particles together. These particles collide with those in front of them, creating a region of high particle density and high pressure. See Figure~\ref{fig:vibrating-string-to}.
 \begin{figure}[h]
@@ -144,8 +150,7 @@ Consider a plucked string. As the vibrating string moves forward, it pushes the 
     \node at (1.5,2.75) {High pressure and density (Compression)};
     \draw[|-|] (0,2.5) -- (3,2.5);
   \end{tikzpicture}
-  \caption{Compression is the region where the air particles are closely packed.}
-  \label{fig:vibrating-string-to}
+  \caption{\label{fig:vibrating-string-to}Compression is the region where the air particles are closely packed.}
 \end{figure}
 
 When the string springs back, it leaves a region behind it with fewer particles, creating a region of low particle density and low pressure. See Figure~\ref{fig:vibrating-string-fro}.
@@ -157,8 +162,7 @@ When the string springs back, it leaves a region behind it with fewer particles,
     \node at (-1.5,-2.75) {Compression};
     \draw[|-|] (-3,-2.5) -- (0,-2.5);
   \end{tikzpicture}
-  \caption{Rarefaction is the region where the air particles are farther apart or loosely packed.}
-  \label{fig:vibrating-string-fro}
+  \caption{\label{fig:vibrating-string-fro}Rarefaction is the region where the air particles are farther apart or loosely packed.}
 \end{figure}
 
 After some time, the particles that moved forward now move backward. At that time, the same area where density was high earlier now becomes low in density. Just like the plucked string moves back and forth, the air particles also move back and forth. But only the vibration that was first created keeps travelling forward like a wave. See Figure~\ref{fig:compressionRarefaction}.
@@ -176,8 +180,7 @@ After some time, the particles that moved forward now move backward. At that tim
           \node[below] at ({1+3*\w},-2) {C};
     \end{tikzpicture}
 %  \checkparity This is an \pageparity\ page.%
-  \caption{Sound propagates as density variations in the medium. C: Compression, R: Rarefaction}
-  \label{fig:compressionRarefaction}
+  \caption{\label{fig:compressionRarefaction}Sound propagates as density variations in the medium. C: Compression, R: Rarefaction}
 %   \zsavepos{pos:ppfig1}
   \setfloatalignment{b}
 \end{figure}
@@ -226,10 +229,14 @@ Look again at the spring activity. The ribbon moves back and forth in the same d
 
 There is another way in which particles can move in a wave. In ocean waves, water appears to physically move up and then fall down. These waves of sea water consist of alternating crests and troughs that represent high and low points. A crest is the highest point or peak, representing maximum positive displacement, while a trough is the lowest point or valley, representing maximum negative displacement. In this case, the particles move perpendicular to the direction in which the wave travels. Such waves are called \textbf{transverse} waves.
 
+\begin{fullwidth}
 \begin{figure}[h]
   \includegraphics{transverse-wave}
-\caption{In ocean waves, water appears to physically move up and down, forming alternating crests (peaks of positive displacement) and troughs (valleys of negative displacement).}
+\caption{\label{transverse-wave}In ocean waves, water appears to physically move up and down, forming alternating crests (peaks of positive displacement) and troughs (valleys of negative displacement).}
 \end{figure}
+\end{fullwidth}
+
+\newthought{Exercise:} Look at the wave diagram in Figure~\ref{transverse-wave}, it shows a snapshot of an ocean weave. Mark and label the crests and troughs.
 
 \begin{figure}[h]
   \begin{tikzpicture}
@@ -242,9 +249,8 @@ There is another way in which particles can move in a wave. In ocean waves, wate
 \caption{In transverse waves, the particles of the medium move perpendicular to the direction in which the wave propagates.}
 \end{figure}
 
-A sound wave in air does not have crests and troughs like the wave we drew on paper. The wavy line used to represent how the sound wave changes is only a representation. The actual sound wave consists of particles moving back and forth and regions of compression and rarefaction travelling through the medium. 
+A sound wave in air does not have crests and troughs like the ocean wave we see in Figure~\ref{transverse-wave}. The wavy line used to represent how the sound wave changes is only a representation. The actual sound wave consists of particles moving back and forth and regions of compression and rarefaction travelling through the medium. 
 
-\newpage
 \section{Frequency of Sound}
 
 Repeat the Vibrating scale activity. \newthought{Observe:} How does the sound change when the length of the overhanging part changes? Does the scale vibrate faster or slower?
@@ -282,11 +288,11 @@ You may notice that when the scale is longer, it vibrates more slowly and the so
           \node[xkcdBlue,above] at ({10*\w/3},1) {C};
     \end{tikzpicture}
 %  \checkparity This is an \pageparity\ page.%
-  \caption{Figure shows sound of two different frequencies. The sound represented as a blue wave has 9 cycles, while the red wave has 3 cycles in the same time. This means that the blue wave completes 3 times as many vibrations in the same time. Therefore, its frequency is 3 times that of the red wave.}\label{fig:frequency}
+  \caption{\label{fig:frequency}Figure shows sound of two different frequencies. The sound represented as a blue wave has 9 cycles, while the red wave has 3 cycles in the same time. This means that the blue wave completes 3 times as many vibrations in the same time. Therefore, its frequency is 3 times that of the red wave.}
 %   \zsavepos{pos:ppfig1}
   \setfloatalignment{b}
 \end{figure}
-\newpage
+
 \newthought{Exercise:} Look at the wave diagram in Figure~22, it shows a sound wave recorded over a time period of 2 seconds. Mark and label the regions of compressions and rarefactions on the diagram.
 
 \begin{figure}[h]
@@ -311,9 +317,7 @@ You may notice that when the scale is longer, it vibrates more slowly and the so
 
   \newthought{Exercise:} Use your count from the previou exercise to calculate the frequency of the wave. Frequency is the number of complete cycles per second, measured in Hertz (\hertz).
 
-\newpage
 \section{Pitch}
-
 Sounds with higher frequency have a higher pitch and sounds with lower frequency have a lower pitch. A mosquito makes a high-pitched sound. A drum makes a low-pitched sound. Which one is vibrating faster?
 
 \section{Activity: Singing Pipe and Glass}
@@ -325,10 +329,18 @@ Sounds with higher frequency have a higher pitch and sounds with lower frequency
 \end{enumerate}
 \subsection{Procedure}
 Fill the glass about three-quarters full with water. Place the pipe vertically in the water leaving one end of the pipe above the water. Blow gently across the open end of the pipe. Listen to the sound produced. Next, move the pipe up so that a longer part of the pipe is above the water. Blow across the open end again. Move the pipe down so that a shorter part of the pipe is above the water. Blow across the open end again. Compare the sounds.
+\begin{figure}
+  \begin{tikzpicture}
+    \node[draw] at (0,0) {Diagram of a transparent glass with a pipe inserted in it};
+  \end{tikzpicture}
+  \caption{Singing Pipe and Glass}
+\end{figure}
 \marginnote{Ask your teacher to help you use the \textbf{Phyphox} app on their smartphone to measure the frequency of the sounds. Compare the frequency of the high-pitched and low-pitched sounds.}
 
 \newthought{Observe:} Does the sound change when you change the length of the air column?
+
 \newthought{Discussion:} Changing the length of the air column changes the pitch of the sound.
+
 \newthought{Question:} Which one is vibrating faster? Mosquito's wings or the membrane of the drum?
 
 \subsection{Amplitude}
@@ -365,7 +377,7 @@ The size of this vibration is called the \textbf{amplitude}. Amplitude tells us 
           \node[xkcdBlue,above] at ({1+3*\w},2) {C};
     \end{tikzpicture}
 %  \checkparity This is an \pageparity\ page.%
-  \caption{Figure shows sound of two different amplitudes. The sound represented as a blue wave has larger amplitude compared to the black wave.}\label{fig:amplitude}
+  \caption{\label{fig:amplitude}Figure shows sound of two different amplitudes. The sound represented as a blue wave has larger amplitude compared to the black wave.}
 %   \zsavepos{pos:ppfig1}
   \setfloatalignment{b}
 \end{figure}
@@ -393,16 +405,35 @@ The distance between two neighbouring compressions (or two neighbouring rarefact
           \draw[|-|,yshift=1.5cm] (4,0) -- ++(3,0) node[midway,above] {$\lambda$};
     \end{tikzpicture}
 %  \checkparity This is an \pageparity\ page.%
-  \caption{The distance between two neighbouring compressions (or two neighbouring rarefactions) is the wavelength ($\lambda$).}\label{fig:wavelength}
+  \caption{\label{fig:wavelength}The distance between two neighbouring compressions (or two neighbouring rarefactions) is the wavelength ($\lambda$).}
 %   \zsavepos{pos:ppfig1}
   \setfloatalignment{b}
 \end{figure}
 
-Repeat the activity, but now create compressions more quickly.
+\newthought{Exercise:} In Figure~\ref{fig:exercise-wavelength}, find the wavelength of the sound wave. Give your answer in centimetres (cm).
 
-\newthought{Observe:} When vibrations happen more often each second (higher frequency), the compressions are packed closer together and the wavelength becomes shorter.
+\begin{figure}
+  \begin{tikzpicture}
+    \draw[yshift=0.5cm,very thin,gray!50] (-1,-3) grid (13,2);
+        \pgfmathsetmacro{\w}{3}
+        \pgfmathsetmacro{\d}{0}
+        \foreach \i in {1,2,3,...,10}{
+          \node[below right] at (\i,0) {\i};
+        %   \node[below] at ({1+(\i-1)*\w+\w/2},-2) {R};
+          }
+        %   \node[below] at ({1+3*\w},-2) {C};
+          \draw[very thick,xkcdPurple] (1,{1+\d}) cos (1.75,{-.5+\d}) sin (2.5,{-2+\d}) cos (3.25,{-.5+\d}) sin (4,{1+\d}) cos (4.75,{-.5+\d}) sin (5.5,{-2+\d}) cos (6.25,{-.5+\d}) sin (7,{1+\d}) cos (7.75,{-.5+\d}) sin (8.5,{-2+\d}) cos (9.25,{-.5+\d}) sin (10,{1+\d});
+          \draw[very thick,->] (1,{-.5+\d}) -- (11,{-.5+\d}) node[below] {position (cm)};
+          \draw[very thick,->] (1,{-2+\d}) -- (1,{1.5+\d}) node[left,text width=4em] {pressure / density};
+          \draw[|-|,yshift=1.5cm] (4,0) -- ++(3,0) node[midway,above,text=white,fill=white,draw,text width=2em] {$\lambda$};
+    \end{tikzpicture}
+    \caption{\label{fig:exercise-wavelength}The figure shows how the pressure changes as sound travels through the medium. The horizontal axis shows distance in centimetres (cm).}
+\end{figure}
 
-Almost all natural sounds (a human voice, falling rain, or a musical instrument) are a complex mixture of multiple sound waves with different frequencies, amplitudes, and wavelengths traveling together through the air.
+\section{}
+
+Almost all natural sounds (a human voice, falling rain, or a musical instrument) are a complex mixture of multiple sound waves with different frequencies, amplitudes, and wavelengths traveling together through the air. See Figure~\ref{fig:mixedfrequencies}.
+
 \begin{figure}
   \begin{tikzpicture}
     \node[yshift=-4em] at (0,0) {\includegraphics[width=3cm]{cos6x}};
@@ -417,8 +448,24 @@ Almost all natural sounds (a human voice, falling rain, or a musical instrument)
     \node at (-2,4) {$=$};
     \node at (-4,4) {\includegraphics[width=3cm]{total}};
   \end{tikzpicture}
-  \caption{The natural sound is a mixture of sound waves with various frequency and wavelengths.}
+  \caption{\label{fig:mixedfrequencies}The natural sound is a mixture of sound waves with various frequency and wavelengths.}
 \end{figure}
+
+Sound systems have different controls that allow us to change the sound we hear. The volume control increases or decreases the amplitude of the sound waves. This makes the sound louder or softer without changing its pitch. The bass control increases or decreases low-frequency sounds, which we hear as deeper sounds, such as the beat of a drum or the sound of a large motor. The treble control increases or decreases high-frequency sounds, which we hear as sharper sounds, such as a whistle, a bell, or the chirping of a bird.
+\begin{marginfigure}
+\begin{tikzpicture}
+  \node[draw] at (0,0) {Image of Volume Controls};
+\end{tikzpicture}
+  \caption{Image of Volume Controls on a Sound System}
+\end{marginfigure}
+
+\section{}
+Unwanted sounds around us, such as the hum of a ceiling fan, the sound of a bus engine, or people talking in a crowded place, are called background noise. Some modern headphones use Active Noise Cancellation (ANC) to reduce background noise. A small microphone in the headphones picks up sounds from the surroundings. The headphones then produce another sound wave that is carefully matched to the unwanted sound. This new wave has the opposite pattern to the unwanted sound wave. When the two waves meet, they partly cancel each other. As a result, the background noise becomes much softer.
+\section{}
+
+Repeat the Long Spring activity, but now create compressions more quickly.
+
+\newthought{Observe:} When vibrations happen more often each second (higher frequency), the compressions are packed closer together and the wavelength becomes shorter.
 
 \section{Speed of Sound}
 Do we hear sound instantly after it is produced? Think about what happens during lightning and thunder. When lightning strikes, we see a flash of light and hear thunder.
@@ -426,11 +473,14 @@ Do we hear sound instantly after it is produced? Think about what happens during
 \newthought{Observe:} Do you see the lightning and hear the thunder at the same time? Or do they happen one after the other? Which do you notice first?
 
 Usually, we see the lightning first and hear the thunder later.
+
 \begin{marginfigure}
   \includegraphics{thunder}
   \caption[Thunder and lightening]{Thunderstorm in Tiruchirappalli, Photo by Amol Mande}
 \end{marginfigure}
-\marginnote{If the thunder sounds quieter when you are farther away, does the thunder have less energy when it reaches you?}
+
+% \marginnote{If the thunder sounds quieter when you are farther away, does the thunder have less energy when it reaches you?}
+
 These observations show that sound takes time to propagate from the source to our ears. Light travels much faster than sound, so we see the flash before we hear the sound. 
 
 In air, sound propagates at a speed of about 340 metres per second (at room temperature). The speed of a sound wave depends on both its frequency and its wavelength.
@@ -438,12 +488,23 @@ In air, sound propagates at a speed of about 340 metres per second (at room temp
 \begin{equation}
 \text{Speed} = \text{Frequency}\times\text{Wavelength}
 \end{equation}
+
 Sound does not propagate at the same speed in all materials. The speed of sound depends on the medium through which it propagates. Sound propagates fastest in solids, slower in liquids, and slowest in gases. For example, sound propagates faster in metal or wood than in air. This is because the particles in solids are closer together, allowing vibrations to pass more quickly from one particle to the next. 
+
+\newthought{Exercise:} A school bell produces a sound with a frequency of 10,000 \hertz. The speed of sound in air is 340 m/s. Calculate the wavelength of the sound wave.
+
+\newthought{Exercise:} The school bell is now completely submerged in water. The bell still vibrates at a frequency of 10 k\hertz. The speed of sound in water is 1500~m/s. Calculate the wavelength of the sound in water.
+
+\marginnote{1~k\hertz = 1000 \hertz.}
+
+\newthought{Discuss:} The frequency of the bell does not change when it is moved from air to water. Does its wavelength change? Explain your answer.
+
+\newthought{Exercise:} A lightning flash is seen instantly, and thunder is heard 4 seconds later. If the speed of sound is 340 m/s, how far away did the lightning strike?
 
 \newthought{Question:} How does temperature affect the speed of sound?
 
 \marginnote{As the temperature increases, the speed of sound increases. This happens because when the temperature is higher, the particles of the medium move faster. As a result, they pass the vibrations to neighbouring particles more quickly, allowing sound to propagate faster. For example, sound travels faster in warm air than in cold air.}
-\newpage
+
 \section{How Do We Hear and Process Sound}
 The human ear converts sound waves into electrical signals for the brain. First, the outer part of our ear, called the pinna, collects sound waves and guides them down the ear canal. At the end of this canal, the sound waves strike a thin membrane called the eardrum, making it vibrate like the skin of a drum. The eardrum is connected to three tiny bones inside the ear. These bones are called the malleus, incus, and stapes. These bones amplify the vibrations. The amplified vibrations pass into the cochlea, a snail-shaped tube filled with liquid. As the liquid inside the cochlea ripples, it stimulates tiny hair cells inside the cochlea. These hair cells convert mechanical vibrations into electrical signals. The auditory nerve carries electrical signals to the brain, which interprets them as speech or music.
 
@@ -451,7 +512,7 @@ The human ear converts sound waves into electrical signals for the brain. First,
   \includegraphics{HumanEar}
   \caption{Diagram of the auditory system of the human ear. Image source: SASOL Inzalo Foundation.}
 \end{figure}
-\newpage
+
 \section{Noise Pollution}
 Unwanted or unpleasant sound is called noise. When there is too much noise in our surroundings, it leads to noise pollution.
 
@@ -477,6 +538,56 @@ When you listen to an audio recording of your voice, sound reaches your ears str
 
 \marginnote{If you pick up a seashell on a beach and hold it close to your ear, you may hear a sound that resembles waves breaking on the shore. Where does this sound come from?}
 
+\subsection{Ultrasound}
+Humans can hear sounds with frequencies roughly between 20 \hertz and 20,000 \hertz. Sounds with frequencies higher than 20,000 \hertz are called ultrasound. Humans cannot hear ultrasound.
+
+Ultrasound has many useful applications:
+
+\begin{enumerate}
+\item Medical imaging: Doctors use ultrasound to look inside the body, for example to observe a developing fetus during pregnancy.
+\item Detecting cracks in materials: Ultrasound can be used to find cracks or defects in metals and other materials.
+\item Animal communication and navigation: Some animals, such as bats and dolphins, produce and detect ultrasound. They use it to communicate and to find objects around them.
+
+\begin{marginfigure}
+\begin{tikzpicture}
+  \node[draw] at (0,0) {Image of Ultrasound Machine};
+\end{tikzpicture}
+\caption{Image of Ultrasound Machine}
+\end{marginfigure}
+
+\begin{marginfigure}
+\includegraphics{bat}
+\caption{Greater Indian fruit bat, image by Praveenp, licensed under CC BY-SA 4.0}
+\end{marginfigure}
+\end{enumerate}
+\subsection{Echo}
+Sound travels at a finite speed. When a sound wave meets a surface such as a wall, cliff, or building, it can reflect and travel back toward the source.
+
+An echo is heard when the reflected sound reaches our ears after a short delay.
+
+For an echo to be heard clearly, the reflecting surface must be far enough away. If the surface is too close, the reflected sound mixes with the original sound and we do not hear a separate echo.
+
+For example, when you shout in a large empty hall, valley, or near a cliff, you may hear your own voice repeated after a short time. This repeated sound is the echo. Echoes show that sound waves can reflect from surfaces and travel back to us.
+\begin{figure}[h!]
+  \includegraphics{echo}
+  \caption{Image source: SASOL Inzalo Foundation}
+\end{figure}
+Big halls use sound-absorbing materials on walls and ceilings such as heavy carpets, padded seats, and perforated wood panels to stop unwanted echoes and make speech clear.
+
+\subsection{Echolocation}
+Animals such as bats and dolphins produce sounds and listen to the echoes to locate objects around them.
+\subsection{Sonar}
+Ships and submarines use sound waves and their echoes to detect objects underwater and measure distances.
+
+
+\subsection{}
+Sound is an example of a mechanical wave. It is also a longitudinal wave, because the particles of the medium vibrate along the direction in which the wave propagates. There is another type of wave called a transverse wave. In a transverse wave, the particles of the medium move perpendicular to the direction in which the wave propagates. In other words, the particles move up and down, while the wave moves forward.
+
+An example of a transverse wave can be seen when a pebble is dropped into a pond. The ripples that spread across the surface of the water are transverse waves.
+
+Light is also a transverse wave. However, light does not need a material medium to propagate, so it is not a mechanical wave.
+
+The world around us is full of waves - sound waves, water waves, and light waves.
 % ---------------------------------------------------------------------------------
 % ---------------------------------------------------------------------------------
 \end{document}
@@ -491,8 +602,8 @@ Consider the case of a vibrating string. When the string vibrates, it pushes and
     \draw (-2,-4) -- (0,-4) node [midway] {Rarefaction (low pressure)};
     \draw (0,0) grid (5,5);
   \end{tikzpicture}
-  \caption{Sound wave propagates from the source of sound (drum in this case) to the listener in the form of vibrations in the medium.}
-  \label{fig:vibrating-string}
+  \caption{\label{fig:vibrating-string}Sound wave propagates from the source of sound (drum in this case) to the listener in the form of vibrations in the medium.}
+  
 \end{figure}
 
 
@@ -508,7 +619,6 @@ When sound propagates through air, the air particles move back and forth around 
 As a sound wave propagates, compressions and rarefactions move forward through the air. This pattern of compressions and rarefactions carries sound from the source to our ears.
 
 
-\newpage
 \section{Frequency of Sound}
 \subsection{Activity: Vibrating Scale}
 Place a scale on the edge of a desk so that part of it stays over the edge. Hold the scale firmly on the desk and pluck the free end so that it vibrates and produces a sound. Optionally, you may record a slow-motion video using a phone.
@@ -526,7 +636,7 @@ Place a scale on the edge of a desk so that part of it stays over the edge. Hold
 \newthought{Question:} Kavin and Priya are standing at different distances from the lightning. Both hear the thunder. Will the pitch of the thunder be different for them? Will the loudness of the thunder be different?
 
 
-\subsection{Activity: long spring}
+\subsection{Activity: Long spring}
 
 Take a long spring. Ask your classmate to hold one end while you hold the other end. Stretch the long spring gently between you. Now give the long spring a quick push toward your classmate.
 
@@ -559,52 +669,9 @@ Nadaswaram (wind instrument): Sound is produced by vibrations of the air column 
 \end{marginfigure}
 Although these instruments look very different, they all produce sound through vibrations, and the frequency of vibration determines the pitch of the sound.
 
-\subsection{Ultrasound}
-Humans can hear sounds with frequencies roughly between 20 \hertz and 20,000 \hertz. Sounds with frequencies higher than 20,000 \hertz are called ultrasound. Humans cannot hear ultrasound.
-
-Ultrasound has many useful applications:
-
-\begin{enumerate}
-\item Medical imaging: Doctors use ultrasound to look inside the body, for example to observe a developing fetus during pregnancy.
-% \begin{marginfigure}
-%   \includegraphics{ultrasound}
-% \caption{Image of Ultrasound Machine}
-% \end{marginfigure}
-\item Detecting cracks in materials: Ultrasound can be used to find cracks or defects in metals and other materials.
-\item Animal communication and navigation: Some animals, such as bats and dolphins, produce and detect ultrasound. They use it to communicate and to find objects around them.
-\begin{marginfigure}
-\includegraphics{bat}
-\caption{Greater Indian fruit bat, image by Praveenp, licensed under CC BY-SA 4.0}
-\end{marginfigure}
-\end{enumerate}
-
-\subsection{Echo}
-Sound travels at a finite speed. When a sound wave meets a surface such as a wall, cliff, or building, it can reflect and travel back toward the source.
-
-An echo is heard when the reflected sound reaches our ears after a short delay.
-
-For an echo to be heard clearly, the reflecting surface must be far enough away. If the surface is too close, the reflected sound mixes with the original sound and we do not hear a separate echo.
-
-For example, when you shout in a large empty hall, valley, or near a cliff, you may hear your own voice repeated after a short time. This repeated sound is the echo. Echoes show that sound waves can reflect from surfaces and travel back to us.
-\begin{figure}[h!]
-  \includegraphics{echo}
-  \caption{Image source: SASOL Inzalo Foundation}
-\end{figure}
-
-\subsection{Echolocation}
-Animals such as bats and dolphins produce sounds and listen to the echoes to locate objects around them.
-\subsection{Sonar}
-Ships and submarines use sound waves and their echoes to detect objects underwater and measure distances.
 
 
-\subsection{}
-Sound is an example of a mechanical wave. It is also a longitudinal wave, because the particles of the medium vibrate along the direction in which the wave propagates. There is another type of wave called a transverse wave. In a transverse wave, the particles of the medium move perpendicular to the direction in which the wave propagates. In other words, the particles move up and down, while the wave moves forward.
 
-An example of a transverse wave can be seen when a pebble is dropped into a pond. The ripples that spread across the surface of the water are transverse waves.
-
-Light is also a transverse wave. However, light does not need a material medium to propagate, so it is not a mechanical wave.
-
-The world around us is full of waves - sound waves, water waves, and light waves.
 % \newpage
 % \nocite{halliday2013fundamentals}
 % \nocite{walker2006flying}

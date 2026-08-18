@@ -1,6 +1,8 @@
+% For pdf
+% pdflatex transverse-wave.tex
 % To convert to svg
-% lualatex --output-format=dvi filename.tex
-% dvisvgm filename.dvi
+% lualatex --output-format=dvi transverse-wave.tex
+% dvisvgm transverse-wave.dvi
 %\documentclass[a3paper]{article}
 %\usepackage[left=0mm,top=1cm,right=0mm,bottom=0mm]{geometry}
 % \documentclass[border=0]{standalone}
@@ -14,15 +16,24 @@
 \begin{document}
 \begin{tikzpicture}
     % \clip (1,-1) rectangle (7,1);
-    \pgfmathsetmacro{\w}{1}	%scale
+    \pgfmathsetmacro{\w}{1.5}	%scale
 	\pgfmathsetmacro{\a}{4}
 	\pgfmathsetmacro{\b}{1}
 
-    \draw[dotted] (0,0) -- (8,0);
-    \draw[very thick] (0,0) sin (1,1) cos (2,0) sin (3,-1) cos (4,0) sin (5,1) cos (6,0) sin (7,-1) cos (8,0);
-    \filldraw (1,1) circle [radius=2pt];
-    \draw[->] (1,1) --++(45:.5) node[right] {crest};
-    \filldraw (3,-1) circle [radius=2pt];
-    \draw[->] (3,-1) --++(-45:.5) node[right] {trough};
+    \draw[dotted,thick] (0,0) -- ({16*\w},0);
+    \foreach \i in {1,2,3}{
+        \draw[very thick] ({4*(\i-1)*\w},0) sin ({(4*\i-3)*\w},1);    
+        \draw[very thick] ({(4*\i-3)*\w},1) cos ({(4*\i-2)*\w},0);
+        \draw[very thick] ({(4*\i-2)*\w},0) sin ({(4*\i-1)*\w},-1);    
+        \draw[very thick] ({(4*\i-1)*\w},-1) cos ({4*\i*\w},0);
+    }
+    \filldraw (\w,1) circle [radius=2pt];
+    \draw[->] (\w,1) --++(45:.5) node[right] {crest};
+    \filldraw ({3*\w},-1) circle [radius=2pt];
+    \draw[->] ({3*\w},-1) --++(-45:.5) node[right] {trough};
+    \foreach \j in {5,9}{
+    \draw[->] ({\j*\w},1) --++(45:.5) node[right,rectangle,draw,text=white,fill=white,text width=5em] {crest};
+    \draw[->] ({(\j+2)*\w},-1) --++(-45:.5) node[right,rectangle,draw,text=white,fill=white,text width=5em] {trough};
+    }
 \end{tikzpicture}
 \end{document}
