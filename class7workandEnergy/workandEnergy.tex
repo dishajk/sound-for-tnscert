@@ -1,84 +1,19 @@
-\documentclass[12pt,a4paper]{tufte-handout}
-
+\documentclass{xtufte-handout}
+\include{preamble}
 \title{Work and Energy\thanks{Draft version as of \today}}
-
-\author[dishajk]{Disha Kuzhively}
-
-%\date{28 March 2010} % without \date command, current date is supplied
-
-%\geometry{showframe} % display margins for debugging page layout
-
-\usepackage{graphicx} % allow embedded images
-  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
-  \graphicspath{{graphics/}} % set of paths to search for images
-\usepackage{amsmath}  % extended mathematics
-\usepackage{booktabs} % book-quality tables
-% \usepackage{units}    % non-stacked fractions and better unit spacing
-\usepackage{multicol} % multiple column layout facilities
-\usepackage{fancyvrb} % extended verbatim environments
-  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
-\usepackage{url}
-\usepackage{hyperref}
-\usepackage{tikz}
-\usetikzlibrary{calc,patterns}
-\usepackage[none]{hyphenat}
-\usepackage{svg}
-\usepackage{siunitx}
-\usepackage{array}
-\usepackage{float}
-% Standardize command font styles and environments
-\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
-\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
-\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
-\newcommand{\docenv}[1]{\textsf{#1}}% environment name
-\newcommand{\docpkg}[1]{\texttt{#1}}% package name
-\newcommand{\doccls}[1]{\texttt{#1}}% document class name
-\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
-\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
-
-\newcommand{\hertz}{Hz}
-
-\tikzset{
-    pencil/.pic={
-        \pgfmathsetmacro{\l}{3}
-        \pgfmathsetmacro{\w}{\l/10}
-        % Pencil body
-        \fill[orange!80!yellow] (0,0) rectangle (\l,\w);
-        % Wooden sharpened part
-        \fill[brown!30] (\l,0) -- ({7*\l/6},\w/2) -- (\l,\w) -- cycle;
-        
-        \fill[black] ({7*\l/6},{\w/2}) -- ($({7*\l/6},{\w/2})!0.3!(\l,\w)$) --($({7*\l/6},{\w/2})!0.3!(\l,0)$) --cycle;
-        % Edge lines
-
-        \draw (0,0) rectangle (\l,\w);
-
-        \draw (\l,0) -- ({7*\l/6},\w/2) -- (\l,\w);
-        \fill[pink!60,draw=black] (-\w,0) rectangle (0,\w);
-        \fill[gray!50, draw=black] (-\w/3,0) rectangle (0,\w);
-    },
-    speaker/.pic={
-        \draw (-1,-1) --++ (0.5,0) --++ (1.5,-1)--++(0,3)--++(-1.5,-1)--++(-0.5,0);
-        \node[text width=2cm] at (0,-.5) {Source of sound}; 
-    }
-}
-
+\author{Disha Kuzhively\thanks{disha.jk@icts.res.in}}
 \begin{document}
-% \printclassoptions
-
-\maketitle% this prints the handout title, author, and date
-
+\maketitle
 \begin{abstract}
-\noindent
 This article was prepared by the author to serve as a draft for TNSCERT class 7 chapter on the concept of Work and Energy during the the Tamil Nadu Curriculum Framing (TNCF) workshop that was held in Asha Nivas, Chennai  from 13-11-2025 to 15-11-2025, 09-03-2026 to 10-03-2026, and 27-04-2026 to 30-04-2026.
 
-The right side margin of each page contains notes for teachers, and prompts to activities that the teacher can initiate in the classroom.
+This draft assumes that the student knows: Force effect on motion, heat (thermal energy), 
 
-% This draft assumes that the student knows: Force effect on motion, heat (thermal energy), 
-
-% Cant assume understanding of difference between distance and displacement, acceleration due to gravity, 
+Cant assume understanding of difference between distance and displacement, acceleration due to gravity, 
 
 \begin{quotation}
-Draft Syllabus\cite{draftSyllabus}:
+Draft Syllabus:
+% \cite{draftSyllabus}
 
 C 1.11: Understands and calculates work and energy, identifies different forms and sources of energy, observes and represents energy changes in real-life situations.
 
@@ -90,9 +25,8 @@ C 1.12: Applies scientific knowledge and uses appropriate scientific vocabulary 
 Energy: Concept and definition of energy, different forms of energy, conversion of energy, energy flow in daily life systems, useful and wasted forms of energy, law of conservation of energy, sources of energy - renewable and non-renewable energy sources-conservation
 \end{quotation}
 \end{abstract}
-In earlier lessons, we learned that a force is needed to start motion, stop motion, change speed, or change the direction of motion.
 
-Let us do a simple activity. Place a book on the desk and push it slowly so that it slides at a steady speed. By pushing slowly, we are trying to apply a constant force to move the book. In everyday language, we say that we are doing some \emph{work}. If we push the same book a longer distance or if we are pushing a heavier stack of books the same distance, we are doing more work than we did initially.
+In earlier lessons, we learned that a force is needed to start motion, stop motion, change speed, or change the direction of motion. Let us do a simple activity. Place a book on the desk and push it slowly so that it slides at a steady speed. By pushing slowly, we are trying to apply a constant force to move the book. In everyday language, we say that we are doing some \emph{work}. If we push the same book a longer distance or if we are pushing a heavier stack of books the same distance, we are doing more work than we did initially.
 
 \begin{figure}
   \begin{tikzpicture}
@@ -108,8 +42,7 @@ From this, we can see that the work done depends on two things:
 \item how much force is applied, and
 \item how far the object moves.
 \end{enumerate}
-\newthought{Exercise: }Write down all the work that you do in your daily life.
-When a constant force $(F)$ moves an object through some dsitance $(d)$ in the same direction as the force, the work done $(W)$ is defined as:
+When a constant force $(F)$ moves an object through some distance $(d)$ in the same direction as the force, the work done $(W)$ is defined as:
 \begin{equation}\label{eq:workDef}
 W = F \times d
 \end{equation}
@@ -180,7 +113,10 @@ Our body gets energy to do work from the food we eat. The energy stored in food 
 \begin{equation}
 1~cal = 4.2~\unit\joule. 
 \end{equation}
-\newthought{Exercise:} Look at the labels of packaged food items in your house. Write down the energy (in calories) given on each label.
+\newthought{Exercise:} Look at the labels of packaged food items in your house. You may notice a table containing nutrional information. This table lists the energy contained in the food (often measured in kcal). Write down the energy (in calories) given on each label.
+\marginnote{1~kcal = 1000~cal}
+
+Our body needs energy not just to run and play but to grow, think, and stay warm. Different foods give energy in different ways. Rice and idly give quick energy (carbohydrates), lentils, milk, and meat help build and repair the body (proteins), and butter, ghee or oil store energy for later (fats). A balanced diet gives the body the right mix of energy sources. Eating too little means not enough energy for the day's work; eating far more than the body uses stores the extra energy as fat.
 
 \marginnote{James Prescott Joule studied how mechanical energy and heat (thermal energy) are related and how one can change into the other. His work showed that different forms of energy are connected, helping scientists develop a unified understanding of energy.
 
@@ -188,7 +124,7 @@ He carried out careful experiments on heat and discovered how heat is produced w
 
 Joule's work played an important role in the development of thermodynamics, the study of heat and energy.
 
-In recognition of his contributions, he was elected a Fellow of the Royal Society in 1850. The SI unit of energy, the joule (J\unit\joule), is named in his honor.
+In recognition of his contributions, he was elected a Fellow of the Royal Society in 1850. The SI unit of energy, the joule (J$\unit\joule$), is named in his honor.
 }
 
 \begin{marginfigure}
@@ -210,12 +146,26 @@ In dam projects, water is stored at a height. This water has potential energy. W
 \end{marginfigure}
 In an electric circuit, energy is stored in a battery. This is \textbf{electrical energy}. When the bulb glows, electrical energy is converted into \textbf{light energy} and some energy is also converted into heat.
 
+Every electrical appliance has a power rating printed on it, in Watts ($\unit\watt$). For example, an LED bulb might be 9~$\unit\watt$ while an oldstyle bulb is 60~$\unit\watt$ for similar brightness. The higher the Watt rating, the faster it uses energy. In India, appliances like fans, refrigerators, and ACs also carry a BEE star rating (1 to 5 stars). More stars means it does the same job using less energy. This is why replacing an old bulb with an LED, or choosing a 5-star fridge, saves electricity over time.
+
 In your electricity bill, you are charged for the electrical energy you use. This is measured in kilowatt-hour (\unit{\kilo\watt\hour}).
 \begin{equation}
-  1~\unit{\kilo\watt\hour} = 3.6\times10^6 \unit{\joule}
+  1~\unit{\kilo\watt\hour} = 3.6\times10^6 \unit{\joule} = 3600000 \unit\joule
 \end{equation}
 
+\newthought{Example:} 
+When a 60~$\unit\watt$ bulb runs for 5~$\unit\hour$ (hour), it uses
+$60~\unit\watt \times 5~\unit\hour
+= 300~\unit{\watt\hour}
+= 0.3~\unit{\kilo\watt\hour}$ of energy.
+
 \newthought{Question:} Check your home electricity bill. How many units (\unit{\kilo\watt\hour}) of energy have you used? Provide your answer in the unit of Joule.
+
+Your electricity provider (like TANGEDCO in Tamil Nadu) charges you for every 'unit' (1 \unit{\kilo\watt\hour}) you use, at a certain rate per unit. 
+\begin{equation}
+  \text{Electricity bill amount} = \text{units used} \times \text{rate}
+\end{equation}
+If a family uses 100 units in a month at INR 5 per unit, their bill is INR 500. Appliances with lower power ratings, used for less time, mean fewer units used and a smaller bill.
 
 You may notice that when the electricity consumed at home is written in the unit of Joule, it is a large number. Measuring the electrical energy consumption in Joule is like measuring the distance between two cities in millimetre. Kilowatt-hour (\unit{\kilo\watt\hour}) is therefore a more convenient unit to measure electrical energy.
 
@@ -226,7 +176,7 @@ When we beat a drum we use mechanical energy (movement of our hand). This energy
 The food we eat and fuels like petrol and gas store energy in the form of \textbf{chemical energy}. When we eat food, our body uses this energy to move, work, and stay warm. When fuel burns, chemical energy is released as heat and light.
 \begin{marginfigure}
 \includegraphics{Salem_Palaintains_of_Tamil_Nadu}
-  \caption{Every 100~\unit\g of banana contains apporximately 89 calories of energy.}
+  \caption{Every 100~$\unit\g$ of banana contains approximately 89 calories of energy.}
 \end{marginfigure}
 \newthought{Question:} A banana contains 100 calories of energy. How much energy is this in joules?
 
@@ -312,6 +262,8 @@ Coal, petrol, and natural gas are non-renewable energy sources. Non-renewable en
 
 Energy from non-renewable sources is limited. If we waste it, it may not be available in the future. Using renewable sources and reducing unnecessary use helps save energy.
 
+Vehicles like cars and bikes burn petrol (a non-renewable, chemical energy source) to move. Carrying one person by car uses much more fuel per person than a bus or train carrying many people together. Walking or cycling for short distances uses no fuel at all. It uses the chemical energy from your food. Choosing a bus, cycle, or walking over a private vehicle when possible saves both fuel and money on tickets and petrol."
+
 \newthought{Question:} Give one real-life situation where understanding energy can help reduce waste.
 Example: Switching off lights and fans when not in use to save electrical energy.
 
@@ -347,120 +299,6 @@ A farm in which uses Solar Power to run its water pumps and lights. & \url{https
     \bottomrule  
   \end{tabular}
 \end{table}
-\nocite{halliday2013fundamentals}
-\nocite{walker2006flying}
-
-\bibliographystyle{plainnat}
-\bibliography{workandenergy}
+% \bibliographystyle{plainnat}
+% \bibliography{workandenergy}
 \end{document}
-
-Where does the energy go when a moving object stops? For example, when you throw a ball up, it moves, has kinetic energy by virt, 
-
-> A ball rolls, slows down, and stops.
-> Has energy disappeared?
-
-Question: Tracking energy
-
- Situations
-
-1. Falling object
-2. Cycling and braking
-3. Electric fan
-4. Boiling water
-
- Task (worksheet)
-
-Fill:
-(also provide an example)
-| Step | What happens | Energy form before | Energy form after |
-| ---- | ------------ | ------------------ | ----------------- |
- 
-Energy changes form, it does not just vanish. 
-
-
-Question: Design a system that uses energy usefully”
-
-Examples:
-
-Solar cooker
-
-Identify source of energy, Show transformations, Explain how waste is reduced
-
-Question: One situation where understanding energy can help reduce waste.
-
-Strait of Hormutz
-Energy crisis
-Efficient use of energy
-
-Energy is associated with state (of motion, position)
-temperature (motion of molecule) do we mention this? shall we restrict to kinetic energy only?
-
-conserved
-
-can be changed from one form to another (like money)
-
-kinetic energy
-
-potential energy, while cycling uphill is difficult, need to put more energy to peddle
-
-Roller coaster during fairs, how do they work?
-
-
-
-Suddenly you realize that a car is headed toward your car the
-wrong way in a one-way tunnel. To minimize your danger
-from the impending accident, should you match your speed
-to that of the other car, go even faster, or slow to a stop?
-A head-on collision is the most dangerous type of car col-
-lision. Surprisingly, the data collected about head-on collisions
-suggest that the risk (or probability) of fatality to a driver is less
-if that driver has a passenger in the car. Why is that?
-
-The best advice is to stop and, if possible, put
-your car in reverse. You can get a measure of the severity of
-the collision by considering the total kinetic energy or the
-total momentum of the cars before the collision. If you do
-not decrease your speed toward the other car, both quanti-
-ties are large, and so the collision will be severe.
-The situation is unlike football, where one player may
-choose to speed up when running head-on into another
-player. The difference is that a player may want the colli-
-sion to be violent, and by properly orienting his body he
-can shift the collision to his opponent's vulnerable area or
-cause his opponent to become unbalanced and slam into
-the field.
-Data collected about head-on car collisions indicate that
-adding a passenger to your car reduces your risk of fatality.
-That risk depends on the change in your velocity during the
-collision: A large change means that you undergo a severe
-acceleration due to a severe force. For example, if your car has
-a small mass and the other car has a large mass, your veloci-
-ty may be changed so much that you end up going backward.
-Additional mass in your car, from a passenger or even a sand-
-bag in the trunk, can decrease your change in velocity and
-thus also your risk. Here is one numerical result: Suppose
-your car and the other car are identical and that your mass
-and the other driver's mass are identical. Your fatality risk is
-reduced by about 9% if you have an 80 kilogram passenger
-in your car.
-
-
-examples from cricket
-
-newton's cradle
-
-Why do balls bounce?
-
-  Rock climbers (as opposed to spelunkers) use rope
-that gives considerably under stress, so that if you fall, your
-stop at the end of the fall is not sudden and the force stop-
-ping you is not huge. As the rope begins to stretch, the rope
-materials rub against one another and become warmer; most
-of the potential energy and kinetic energy that you lose dur-
-ing the fall ends up as thermal energy within the rope.
-
-Playing carroms
-
-Working of a yoyo -  when talking about types of mechanical energy
-
-Playing using spinning tops
